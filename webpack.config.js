@@ -1,12 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, './src/index.ts'),
+    main: path.resolve(__dirname, './src/index.tsx'),
   },
   output: {
     path: path.resolve(__dirname, './docs'),
@@ -21,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'title приложения',
+      title: 'title приложения',                                  /** title приложения */
       template: path.resolve(__dirname, './src/template.html'),
       filename: 'index.html',
     }),
@@ -29,17 +31,32 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        extractComments: false,
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+      })
+    ],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ['typescript-loader'],
+        use: 'ts-loader',
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -55,5 +72,9 @@ module.exports = {
       },
     ],
   },
-  mode: 'development'
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    preferRelative: true
+  },
+  mode: 'development',
 }

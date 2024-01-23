@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react",
+    "outDir": "./docs",
+    "esModuleInterop": true,
+    "paths": {
+      "components": ["./src/components"],
+      "styles/*": ["./src/assets/styles/*"],
+      "store/*": ["./src/store/*"],
+    }
+  },
+  "include": [
+    "./src",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "baseUrl": "./src"
+}
