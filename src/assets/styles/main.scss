@@ -1,3 +1,6 @@
+$info-color: hsla(210, 60%, 65%, 1);
+$content-color: hsla(0, 0%, 80%, 1);
+
 *,
 *::before,
 *::after {
@@ -5,6 +8,45 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 18px;
-  color: #24292e;
   word-wrap: break-word;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-color {
+  color: $content-color;
+}
+
+.app-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background: hsla(210, 20%, 10%, 1);
+  gap: 2px;
+  color: $info-color
+}
+
+.header-container {
+  height: 64px;
+  width:  100%;
+  min-width: 40px;
+  box-shadow: 0 0.5rem 0.5rem -0.5rem hsla(0,0%,0%,.25);
+  background:  hsla(210, 50%, 20%, 0.25);
+  padding: .75rem;
+  display: flex;
+  align-items: center;
+}
+
+.left-side-bar-container {
+  width: 320px;
+  height: 100%;
+}
+
+.main-content-container {
+  width: 800px;
+}
+
+.content-container {
+  padding: .75rem;
 }

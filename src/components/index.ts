@@ -1,2 +1,3 @@
-export { Header } from './Header'
+export { LeftSideBar } from './LeftSideBar'
+export { MainContent } from './MainContent'
 

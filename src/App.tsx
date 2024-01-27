@@ -1,13 +1,13 @@
 import React from "react";
-import { Header } from "components";
+import { LeftSideBar, MainContent } from "components";
 import './assets/styles/main.scss'
 
 function App() {
     return (
-        <>
-           <Header/>
-           hello
-        </>
+        <div className='app-container'>
+           <LeftSideBar />
+            <MainContent />
+        </div>
     );
 }
 
