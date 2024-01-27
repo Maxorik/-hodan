@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -23,13 +24,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'title приложения',                                  /** title приложения */
+      title: '$hodan',                                  /** title приложения */
       template: path.resolve(__dirname, './src/template.html'),
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/assets/image", to: "image" }
+      ]
+    }),
   ],
   optimization: {
     minimizer: [
