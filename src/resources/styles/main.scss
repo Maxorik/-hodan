@@ -1,6 +1,8 @@
 $info-color: hsla(210, 60%, 65%, 1);
 $content-color: hsla(0, 0%, 80%, 1);
 
+@import './card';
+
 *,
 *::before,
 *::after {

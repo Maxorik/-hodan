@@ -1,6 +1,6 @@
 import React from "react";
 import { LeftSideBar, MainContent } from "components";
-import './assets/styles/main.scss'
+import './resources/styles/main.scss'
 
 function App() {
     return (
