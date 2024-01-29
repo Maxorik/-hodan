@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
 import { Card } from './Card'
+import CardsResources from '../store/cards'
 
 export const MainContent = observer(() => {
     return (
@@ -9,12 +10,8 @@ export const MainContent = observer(() => {
                 <div className='content-color'>ddf</div>
             </div>
             <div className='content-container'>
-                контент здесь
-                <Card
-                    image = 'resources/image/css-shadow.png'
-                    title = 'CSS BOX-SHADOW генератор'
-                    text = 'Свойство принимает составное значение из пяти разных частей: горизонтальное смещение, вертикальное смещение, размытие, растяжение, цвет тени. К тому же можно указать будет ли тень внешней или внутренней.'
-                />
+                Введите слово для поиска...
+                { CardsResources.map(card => <Card {...card} />) }
             </div>
         </div>
     );

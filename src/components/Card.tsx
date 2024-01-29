@@ -1,25 +1,26 @@
 /** Компонент для карточки */
 
 import React from 'react';
-import {observer} from "mobx-react-lite";
-import images from '../resources/image'
+import { observer } from "mobx-react-lite";
+import { ICardProps } from '../store/cards'
 
-interface CardProps {
-    title: string,
-    text: string,
-    image: string
-}
+export const Card = observer(({ title, text, image, href }: ICardProps) => {
+    const imagePath = (image: string) => {
+        return `resources/image/${image}`;
+    }
 
-export const Card = observer(({ title, text, image }: CardProps) => {
     return (
         <div className='card-container'>
             <div className='card-preview'>
-                <img src={ image } />
+                <img src={ imagePath(image) } />
             </div>
             <div>
-                <p className='card-title'>{ title }</p>
+                <a href={ href } target='_blank' className='card-title'>{ title }</a>
                 <p className='card-text'>{ text }</p>
             </div>
+
+            {/* TODO спойлер с description*/}
+
         </div>
     );
 })
