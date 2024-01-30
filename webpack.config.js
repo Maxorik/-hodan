@@ -33,7 +33,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: "src/assets/image", to: "image" }
+        { from: "src/resources/image", to: "resources/image/" }
       ]
     }),
   ],
@@ -66,7 +66,7 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
