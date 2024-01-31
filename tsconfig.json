@@ -7,19 +7,22 @@
     "jsx": "react",
     "outDir": "./docs",
     "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
-      "components": ["./src/components"],
-      "pages": ["./src/pages"],
-      "styles/*": ["./src/resources/styles/*"],
-      "store/*": ["./src/store/*"],
-      "image/*": ["./src/resources/image/*"],
+      "components": ["src/components"],
+      "@pages": ["src/pages"],
+      "styles/*": ["src/resources/styles/*"],
+      "store/*": ["src/store/*"],
+      "image/*": ["src/resources/image/*"],
     }
   },
   "include": [
-    "./src",
+    "src/index.tsx",
   ],
   "exclude": [
-    "node_modules"
-  ],
-  "baseUrl": "./src"
+    "node_modules",
+    "docs",
+    "webpack.config.js",
+    "postcss.config.js"
+  ]
 }

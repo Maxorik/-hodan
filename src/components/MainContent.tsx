@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import { Card } from './Card'
-import CardsResources from '../store/cards'
+import { ResourcePage, ProjectPage } from '../pages'
+import appStore from '../store/app'
 
 export const MainContent = observer(() => {
     return (
@@ -9,10 +9,8 @@ export const MainContent = observer(() => {
             <div className='header-container'>
                 <div className='content-color'>ddf</div>
             </div>
-            <div className='content-container'>
-                Введите слово для поиска...
-                { CardsResources.map(card => <Card {...card} />) }
-            </div>
+            { appStore.activePage === 'services' && <ResourcePage/> }
+            { appStore.activePage === 'projects' && <ProjectPage /> }
         </div>
     );
 })
