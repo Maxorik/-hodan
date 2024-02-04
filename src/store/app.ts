@@ -12,7 +12,6 @@ class AppMainStore {
         this.activePage = page;
     }
 
-
 }
 
 export default new AppMainStore()

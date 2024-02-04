@@ -1,23 +1,30 @@
 .card-container {
   display: flex;
   margin: 10px 0;
+  padding: 12px;
+  background-color: $divider-color;
+  border-radius: 6px;
 }
 
 .card-title {
 
 }
 
-.card-preview {
-  margin-right: 20px;
+.card-tags {
+  margin-right: 10px;
   height: 100%;
-  img {
-    object-fit: cover;
-    width: 200px;
-    height: 100%;
-    border-radius: 4px;
-  }
+  width: 55px;
+  min-width: 55px;
+  color: $content-color;
 }
 
 .card-text {
-  margin-top: 8px;
+  margin-top: 16px;
+}
+
+.card-divider {
+  width: 1px;
+  height: auto;
+  margin-right: 10px;
+  border-right: 3px solid $bg-color;
 }
