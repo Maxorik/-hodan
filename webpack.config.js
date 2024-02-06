@@ -31,11 +31,11 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: "src/resources/image", to: "resources/image/" }
-      ]
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     { from: "src/resources/image", to: "resources/image/" }
+    //   ]
+    // }),
   ],
   optimization: {
     minimizer: [

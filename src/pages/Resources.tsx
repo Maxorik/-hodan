@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { observer } from "mobx-react-lite";
+import Modal from '@mui/material/Modal';
+import { TextField } from '@mui/material';
 import Resources from '../store/resources'
+import { SearchWidget } from '../components'
 
 export const ResourcePage = observer(() => {
     useEffect(() => {
@@ -13,7 +16,7 @@ export const ResourcePage = observer(() => {
 
     return (
         <div className='content-container'>
-            Введите слово для поиска...
+            <SearchWidget type='resources' />
             { Resources.resourceList.map((card) =>
                 <div className='card-container' key={ card.href }>
                     <div className='card-tags'>
