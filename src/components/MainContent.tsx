@@ -9,7 +9,7 @@ export const MainContent = observer(() => {
             <div className='header-container'>
                 <div className='content-color'>ddf</div>
             </div>
-            { appStore.activePage === 'services' && <ResourcePage/> }
+            { appStore.activePage === 'resources' && <ResourcePage/> }
             { appStore.activePage === 'projects' && <ProjectPage /> }
         </div>
     );

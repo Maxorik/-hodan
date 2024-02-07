@@ -8,6 +8,7 @@
     "outDir": "./docs",
     "esModuleInterop": true,
     "baseUrl": ".",
+    "experimentalDecorators": true,
     "paths": {
       "components": ["src/components"],
       "@pages": ["src/pages"],

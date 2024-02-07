@@ -5,8 +5,10 @@ import { IconButton, Paper, TextField } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import InputBase from '@mui/material/InputBase';
 
-export const SearchWidget = observer((type: any) => {   // TODO тип страницы (?)
-    console.log(type)
+export const SearchWidget = observer(() => {
+    const setSearchValue = (value: string) => {
+        appStore.searchedValue = value;
+    }
     return (
         <Paper
             component="form"
@@ -15,6 +17,7 @@ export const SearchWidget = observer((type: any) => {   // TODO тип стра�
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Поиск..."
+                onChange={ (e) => setSearchValue(e.target.value) }
             />
             <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
                 <DeleteIcon />

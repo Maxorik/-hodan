@@ -1,9 +1,13 @@
-import { makeAutoObservable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
 /** Основной стор приложения */
 class AppMainStore {
     constructor() {
-        makeAutoObservable(this, {}, { deep:false })
+        makeObservable(this, {
+            activePage: observable,
+            setActivePage: action,
+            searchedValue: observable,
+        });
     }
 
     /** Активная страница */
@@ -11,6 +15,9 @@ class AppMainStore {
     setActivePage(page: string) {
         this.activePage = page;
     }
+
+    /** Поиск */
+    searchedValue: string = '';
 
 }
 

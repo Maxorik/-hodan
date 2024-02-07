@@ -1,8 +1,9 @@
 /** Модель для ресурсов */
 import axios from "axios";
-import { makeAutoObservable } from "mobx";
+import { makeObservable, observable, action, computed } from "mobx";
+import appStore from './app'
 
-export interface ICardProps {
+export interface IResourceProps {
     title: string,
     text: string,
     href: string,
@@ -14,10 +15,14 @@ const url = 'https://hodan-2ff80-default-rtdb.firebaseio.com/services.json';
 
 class ResourcesStore {
     constructor() {
-        makeAutoObservable(this, {}, { deep:false })
+        makeObservable(this, {
+            resourceList: observable,
+            getResources: action,
+        });
     }
 
-    resourceList: ICardProps[] = [];
+    /** Данные */
+    resourceList: IResourceProps[] = [];
 
     async getResources() {
         try {

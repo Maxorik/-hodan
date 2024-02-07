@@ -32,7 +32,7 @@ export const LeftSideBar = observer(() => {
                             <TreeItem nodeId="projects-bot-kit" label="Custom Shop" />
                         </TreeItem>
                     </TreeItem>
-                    <TreeItem nodeId="service-parent" label="Полезное" onClick={ () => appStore.setActivePage('services') } />
+                    <TreeItem nodeId="service-parent" label="Полезное" onClick={ () => appStore.setActivePage('resources') } />
                 </TreeView>
             </div>
         </div>
