@@ -11,8 +11,9 @@
     "experimentalDecorators": true,
     "paths": {
       "components": ["src/components"],
-      "@pages": ["src/pages"],
-      "styles/*": ["src/resources/styles/*"],
+      "pages/*": ["src/pages/*"],
+      "forms/*": ["src/forms/*"],
+      "styles/*": ["src/styles/*"],
       "store/*": ["src/store/*"],
     }
   },

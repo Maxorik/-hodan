@@ -17,12 +17,11 @@ export const ResourcePage = observer(() => {
 
     function filteredValue(value: IResourceProps) {
         const filter = appStore.searchedValue || '';
-        return value.text.includes(filter) || value.title.includes(filter);
+        return value.text.includes(filter) || value.title.includes(filter) || value.tags.includes(filter);
     }
 
     return (
         <div className='content-container'>
-            <SearchWidget />
             { Resources.resourceList.map((card) => {
                return filteredValue(card) &&
                    <div className='card-container' key={ card.href }>

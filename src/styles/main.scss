@@ -4,10 +4,12 @@ $href-color: hsla(180, 100%, 86%, 0.89);
 $href-hover-color: hsla(57, 100%, 76%, 0.89);
 $bg-color: hsla(210, 20%, 10%, 1);
 $divider-color: hsla(210, 60%, 65%, 0.07);
+$header-color: #16202a;
 $highlight-color: hsl(26, 85%, 57%);
 
 @import './card';
 @import './containers';
+@import './_base';
 
 *,
 *::before,
@@ -18,6 +20,10 @@ $highlight-color: hsl(26, 85%, 57%);
   font-size: 18px;
   word-wrap: break-word;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fixed {
+  position: absolute;
 }
 
 .content-color {
@@ -54,4 +60,20 @@ a {
 
 .MuiIconButton-root {
   border-radius: 4px !important;
+}
+
+/** Полоса прокрутки */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $bg-color;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $bg-color;
+  border-radius: 20px;
+  border: 1px solid $divider-color;
 }
