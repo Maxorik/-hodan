@@ -33,6 +33,10 @@ class ResourcesStore {
         }
     }
 
+    /** Добавить запись */
+    addNote(title: string, href: string, text: string, tags: string) {
+        console.log(arguments)
+    }
 }
 
 export default new ResourcesStore()

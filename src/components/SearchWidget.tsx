@@ -18,8 +18,14 @@ export const SearchWidget = observer(() => {
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Поиск..."
                 onChange={ (e) => setSearchValue(e.target.value) }
+                value={ appStore.searchedValue }
             />
-            <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
+            <IconButton
+                color="primary"
+                sx={{ p: '10px' }}
+                aria-label="directions"
+                onClick = { () => appStore.discardSearchValue() }
+            >
                 <DeleteIcon />
             </IconButton>
         </Paper>
