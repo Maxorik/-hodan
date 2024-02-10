@@ -27,30 +27,34 @@ export const AddResource = observer(() => {
                 type="text"
                 variant="standard"
                 { ...title }
+                fullWidth
             />
             <TextField
                 label="Ссылка"
                 type="text"
                 variant="standard"
                 { ...href }
+                fullWidth
             />
             <TextField
                 label="Описание"
                 type="text"
                 variant="standard"
                 { ...text }
+                fullWidth
             />
             <TextField
                 label="Теги"
                 type="text"
                 variant="standard"
                 { ...tags }
+                fullWidth
             />
             <div className='form-controls'>
                 <Button
                     variant="contained"
                     endIcon={<SendIcon />}
-                    className='mt-20'
+                    className='mr-8'
                     onClick={ () => resStore.addNote(title.value, href.value, text.value, tags.value) }
                 >
                     Добавить

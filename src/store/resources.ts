@@ -26,8 +26,8 @@ class ResourcesStore {
 
     async getResources() {
         try {
-            const response = await axios.get(url)
-            this.resourceList =  response.data
+            const response = await axios.get(url);
+            this.resourceList = Object.values(response.data);
         } catch (err) {
             console.error(err.toJSON())
         }
@@ -35,7 +35,8 @@ class ResourcesStore {
 
     /** Добавить запись */
     addNote(title: string, href: string, text: string, tags: string) {
-        console.log(arguments)
+        title && href && text && axios.post(url, { title: title, href: href, text: text, tags: tags })
+            .finally(function () { this.getResources() })
     }
 }
 
