@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
@@ -7,9 +7,12 @@ import appStore from '../store/app';
 import { SearchWidget } from '../components';
 
 export const ResourcePage = observer(() => {
+    const [isLoading, setLoading] = useState(false);
+
     useEffect(() => {
-        Resources.getResources();
-    }, [])
+        setLoading(true);
+        Resources.getResources().then(() => setLoading(false));
+    }, []);
 
     const parsedTags = (tags: string) => {
         return tags ? tags.split(', ').map(item => '#'+item).join(' ') : null;
@@ -22,7 +25,9 @@ export const ResourcePage = observer(() => {
 
     return (
         <div className='content-container'>
-            { Resources.resourceList.map((card) => {
+            { isLoading ?
+               <div className='loader-container'><div className='loader' /></div> :
+               Resources.resourceList.map((card) => {
                return filteredValue(card) &&
                    <div className='card-container' key={ card.href }>
                        <div className='card-tags'>

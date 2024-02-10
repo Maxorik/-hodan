@@ -7,7 +7,7 @@ export const RightSideBar = observer(() => {
     return (
         <div className="right-side-bar-container">
             <div className='header-container'>
-                <div className='header22'>Добавить...</div>
+
             </div>
             <div className='content-container'>
                 { appStore.activePage === 'resources' && <AddResource/> }

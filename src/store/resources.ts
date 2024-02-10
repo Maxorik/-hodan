@@ -29,7 +29,7 @@ class ResourcesStore {
             const response = await axios.get(url);
             this.resourceList = Object.values(response.data);
         } catch (err) {
-            console.error(err.toJSON())
+            console.error(err.toJSON());
         }
     }
 
