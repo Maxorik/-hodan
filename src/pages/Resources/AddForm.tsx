@@ -3,9 +3,8 @@ import { observer } from "mobx-react-lite";
 import { Button, IconButton, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-import appStore, { useFormField } from '../store/app'
-import resStore from '../store/resources'
+import appStore, { useFormField } from '../../store'
+import resStore from './store'
 
 export const AddResource = observer(() => {
     const title = useFormField();

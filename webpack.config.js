@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -36,6 +37,9 @@ module.exports = {
         { from: "src/assets", to: "assets/" }
       ]
     }),
+    new TsconfigPathsPlugin({
+      configFile: './tsconfig.json'
+    })
   ],
   optimization: {
     minimizer: [

@@ -1,7 +1,7 @@
 /** Модель для ресурсов */
 import axios from "axios";
 import { makeObservable, observable, action, computed } from "mobx";
-import appStore from './app'
+import appStore from '../../store'
 
 export interface IResourceProps {
     title: string,

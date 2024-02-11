@@ -10,11 +10,10 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "paths": {
+      "src": ["src/*"],
       "components": ["src/components"],
       "pages/*": ["src/pages/*"],
-      "forms/*": ["src/forms/*"],
       "styles/*": ["src/styles/*"],
-      "store/*": ["src/store/*"],
     }
   },
   "include": [

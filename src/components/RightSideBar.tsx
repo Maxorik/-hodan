@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import appStore from '../store/app'
-import { AddResource } from '../forms/AddResource'
+import appStore from '../store'
+import { AddResource } from '../pages'
 
 export const RightSideBar = observer(() => {
     return (

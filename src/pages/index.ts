@@ -1,2 +1,2 @@
-export { ResourcePage } from './Resources'
+export * from './Resources'
 export { ProjectPage } from './Projects'

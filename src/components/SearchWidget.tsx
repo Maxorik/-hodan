@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import appStore from '../store/app'
+import appStore from '../store'
 import { IconButton, Paper, TextField } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import InputBase from '@mui/material/InputBase';
