@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
 import appStore from '../store'
-import { AddResource } from '../pages'
+import { AddResource, AddRadio } from '../pages'
 
 export const RightSideBar = observer(() => {
     return (
@@ -11,6 +11,7 @@ export const RightSideBar = observer(() => {
             </div>
             <div className='content-container'>
                 { appStore.activePage === 'resources' && <AddResource/> }
+                { appStore.activePage === 'radio' && <AddRadio/> }
             </div>
         </div>
     );

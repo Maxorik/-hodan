@@ -20,18 +20,8 @@ export const LeftSideBar = observer(() => {
                     defaultExpandIcon={<ChevronRightIcon />}
                     defaultExpanded={['projects-parent']}
                 >
-                    <TreeItem nodeId="projects-parent" label="Мои проекты" onClick={ () => appStore.setActivePage('projects') }>
-                        <TreeItem nodeId="projects-app-parent" label="Приложения">
-                            <TreeItem nodeId="projects-velum-radio" label="VelumRadio" />
-                            <TreeItem nodeId="projects-freepeetomsk" label="FreePeeTomsk" />
-                            <TreeItem nodeId="projects-hpc" label="Harry Potter collection" />
-                        </TreeItem>
-                        <TreeItem nodeId="projects-bots-parent" label="Боты">
-                            <TreeItem nodeId="projects-vk-get-bot" label="VK get_bot" />
-                            <TreeItem nodeId="projects-bot-kit" label="Custom Shop" />
-                        </TreeItem>
-                    </TreeItem>
                     <TreeItem nodeId="service-parent" label="Полезное" onClick={ () => appStore.setActivePage('resources') } />
+                    <TreeItem nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
                 </TreeView>
             </div>
         </div>
