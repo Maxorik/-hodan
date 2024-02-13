@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import appStore from '../store'
-import { AddResource, AddRadio } from '../pages'
+import appStore from 'store'
+import { AddResource, AddRadio } from 'pages'
 
 export const RightSideBar = observer(() => {
     return (

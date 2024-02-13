@@ -36,9 +36,6 @@ module.exports = {
       patterns: [
         { from: "src/assets", to: "assets/" }
       ]
-    }),
-    new TsconfigPathsPlugin({
-      configFile: './tsconfig.json'
     })
   ],
   optimization: {
@@ -83,8 +80,11 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-    preferRelative: true
+    extensions: ['.mjs', '.tsx', '.ts', '.js', '.jsx'],
+    plugins: [new TsconfigPathsPlugin({
+      extensions: ['.mjs', '.tsx', '.ts', '.js', '.jsx'],
+      logInfoToStdOut: true
+    })]
   },
   mode: 'development',
 }

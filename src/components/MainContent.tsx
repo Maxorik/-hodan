@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import { ResourcePage, RadioPage } from '../pages'
-import appStore from '../store'
+import { ResourcePage, RadioPage } from 'pages'
+import appStore from 'store'
 import { SearchWidget } from './SearchWidget';
 
 export const MainContent = observer(() => {

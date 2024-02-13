@@ -1,7 +1,7 @@
 /** Модель для радио */
 import axios from "axios";
 import { makeObservable, observable, action, computed } from "mobx";
-import appStore from '../../store'
+import appStore from 'store'
 
 export interface IRadioProps {
     href: string

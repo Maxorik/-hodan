@@ -4,7 +4,7 @@ import { TreeView } from '@mui/x-tree-view/TreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import appStore from '../store'
+import appStore from 'store'
 
 export const LeftSideBar = observer(() => {
     return (

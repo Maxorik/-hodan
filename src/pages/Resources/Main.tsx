@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
+import appStore from 'store';
+import { SearchWidget } from 'components';
 import Resources, { IResourceProps } from './store';
-import appStore from '../../store';
-import { SearchWidget } from '../../components';
 
 export const ResourcePage = observer(() => {
     const [isLoading, setLoading] = useState(false);
