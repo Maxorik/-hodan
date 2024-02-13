@@ -12,7 +12,7 @@ export const SearchWidget = observer(() => {
     return (
         <Paper
             component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, m: '72px 0 -12px 0' }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}

@@ -5,22 +5,37 @@
 import React from 'react';
 
 interface VideoProps {
-    link: string
+    link: string,
+    playerWidth: number,
+    playerHeight: number
 }
 
-export const VideoIntegration = ({ link }: VideoProps) => {
-    const videoCode = link.split('=');
-    const videoLink = 'https://www.youtube.com/embed/' + videoCode[1];
-    const playerWidth = global.isMobile ? '310' : '560';
-    const playerHeight = global.isMobile ? '190' : '315';
+/** Настройки для смартфонов и т.п. */
+const monileWidthK = 1.8;
+const monileHeightK = 1.65;
+const isMobile = window.navigator.userAgent.toLowerCase().includes("mobi");
+
+export const VideoIntegration = ({ link, playerWidth, playerHeight }: VideoProps) => {
+    const getLink = () => {
+        const videoCode = link.split('=');
+        return 'https://www.youtube.com/embed/' + videoCode[1];
+    }
+
+    const getWidth = () => {
+        return isMobile ? (playerWidth / monileWidthK) : playerWidth;
+    }
+
+    const getHeight = () => {
+        return isMobile ? (playerHeight / monileHeightK) : playerHeight;
+    }
 
     return(
         <div className='video-container'>
             {
-                videoCode[1] &&
-                <iframe width ={playerWidth}
-                        height ={playerHeight}
-                        src = {videoLink}
+                // videoCode[1] &&
+                <iframe width ={ getWidth() }
+                        height ={ getHeight() }
+                        src = { getLink() }
                         title="video example"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

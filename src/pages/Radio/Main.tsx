@@ -15,14 +15,19 @@ export const RadioPage = observer(() => {
     }, []);
 
     return (
-        <div className='content-container'>
-            { isLoading ?
-               <div className='loader-container'><div className='loader' /></div> :
-                RadioStore.radioList.map(item =>
-                   <div className='card-container' key={ item.href }>
-                       <VideoIntegration link={ item.href } />
-                   </div>
-            )}
-        </div>
+        <>
+            {isLoading ?
+                <div className='loader-container '>
+                    <div className='loader'/>
+                </div> :
+                <div className='content-container video-card-container'>
+                    {RadioStore.radioList.map(item =>
+                        <div className='card-container' key={ item.href }>
+                            <VideoIntegration link={ item.href } playerWidth={ 350 } playerHeight={ 200 } />
+                        </div>
+                    )}
+                </div>
+            }
+        </>
     );
 })

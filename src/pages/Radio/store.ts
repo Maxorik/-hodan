@@ -32,7 +32,11 @@ class RadioStore {
     /** Добавить запись */
     addRadio(href: string) {
         href && axios.post(url, { href: href })
-            .finally(function () { this.getRadio() })
+            .finally(function () { try{
+                this.getRadio()
+            } catch (e) {
+                console.log(e)
+            } })
     }
 }
 

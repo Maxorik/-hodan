@@ -10,11 +10,9 @@ export const MainContent = observer(() => {
     return (
         <div className="main-content-container">
             <div className='header-container fixed-main'>
-            </div>
-            <div className='fixed-main'>
                 { pageWithSearch.includes(appStore.activePage) && <SearchWidget /> }
             </div>
-            <div className='mt-112'>
+            <div className='mt-54'>
                 { appStore.activePage === 'resources' && <ResourcePage/> }
                 { appStore.activePage === 'radio' && <RadioPage /> }
             </div>
