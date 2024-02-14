@@ -4,9 +4,14 @@
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  background: $bg-color;
   gap: 2px;
-  color: $info-color
+  color: $info-color;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient( hsla( 0deg, 0%, calc( 50% + -1 * 50% ), .666 ),
+          hsla( 0deg, 0%, calc( 50% + -1 * 50% ), .666 ) ),
+  url("../assets/forest.jpg");
 }
 
 .header-container {
@@ -45,15 +50,12 @@
 }
 
 .card-container {
-  box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-}
-
-.card-container {
   display: flex;
   margin-top: 10px;
   padding: 12px;
   background-color: $divider-color;
   border-radius: 6px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 
 .video-card-container {
