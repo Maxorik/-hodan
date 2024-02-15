@@ -22,6 +22,7 @@ export const LeftSideBar = observer(() => {
                 >
                     <TreeItem nodeId="service-parent" label="Полезное" onClick={ () => appStore.setActivePage('resources') } />
                     <TreeItem nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
+                    <TreeItem nodeId="tutorials-parent" label="Знания" onClick={ () => appStore.setActivePage('tutorials') } />
                 </TreeView>
             </div>
         </div>
