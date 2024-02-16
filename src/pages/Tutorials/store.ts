@@ -51,7 +51,7 @@ class TutorialsStore {
     /** Добавить запись */
     addNote(title: string, href: string, text: string, tags: string) {
         title && href && text && axios.post(url, { title: title, href: href, text: text, tags: tags })
-            .finally(function () { this.getResources() })
+            // .finally(function () { this.getResources() })
     }
 }
 

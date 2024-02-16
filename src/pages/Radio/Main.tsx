@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
-import Modal from '@mui/material/Modal';
-import { TextField } from '@mui/material';
-import appStore from 'store';
-import { SearchWidget, VideoIntegration } from 'components';
-import RadioStore, { IRadioProps } from './store';
+import { VideoIntegration } from 'components';
+import RadioStore from './store';
 
 export const RadioPage = observer(() => {
     const [isLoading, setLoading] = useState(false);

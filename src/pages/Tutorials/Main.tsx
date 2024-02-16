@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
-import Modal from '@mui/material/Modal';
-import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { VideoIntegration } from "components";
 
 import appStore from 'store';
-import { SearchWidget } from 'components';
 import Tutorials, { ITutorialsProps } from './store';
 
 export const TutorialsPage = observer(() => {
@@ -52,10 +50,9 @@ export const TutorialsPage = observer(() => {
                             Tutorials.tutorialVideoList.map((card) => {
                                 return filteredValue(card) &&
                                     <div className='card-container' key={ card.href }>
-                                        <div className='card-tags'>
-                                            { parsedTags(card.tags) }
+                                        <div className='card-video-preview'>
+                                            <VideoIntegration link={ card.href } playerWidth={ 200 } playerHeight={ 160 } />
                                         </div>
-                                        <div className='card-divider'/>
                                         <div>
                                            <span>
                                                &#128640;
