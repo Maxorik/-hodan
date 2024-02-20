@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import { VideoIntegration } from 'components';
-import RadioStore from './store';
+import appStore, { ICardProps } from 'store';
 
 export const RadioPage = observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
-        RadioStore.getRadio().then(() => setLoading(false));
+        appStore.getData('radio').then(() => setLoading(false));
     }, []);
 
     return (
         <>
-            {isLoading ?
+            { isLoading ?
                 <div className='loader-container '>
                     <div className='loader'/>
                 </div> :
                 <div className='content-container video-card-container'>
-                    {RadioStore.radioList.map(item =>
+                    { appStore.data.radio.map(item =>
                         <div className='card-container' key={ item.href }>
                             <VideoIntegration link={ item.href } playerWidth={ 350 } playerHeight={ 200 } />
                         </div>

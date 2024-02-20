@@ -5,27 +5,26 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { VideoIntegration } from "components";
-
-import appStore from 'store';
-import Tutorials, { ITutorialsProps } from './store';
+import { VideoIntegration, Card } from "components";
+import appStore, { ICardProps } from 'store';
 
 export const TutorialsPage = observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
-        Tutorials.getTutorials().then(() => setLoading(false));
+        appStore.getData('tutorials').then(() => setLoading(false));
     }, []);
 
-    const parsedTags = (tags: string) => {
-        return tags ? tags.split(', ').map(item => '#'+item).join(' ') : null;
-    }
-
     /** Фильтрованное значение */
-    function filteredValue(value: ITutorialsProps) {
+    function filteredValue(value: ICardProps) {
         const filter = appStore.searchedValue || '';
         return value.text.includes(filter) || value.title.includes(filter) || value.tags.includes(filter);
+    }
+
+    /** Это видео-курс */
+    function isVideo(href: string) {
+        return href.indexOf('youtube.com') !== -1;
     }
 
     /** Переключатель табов */
@@ -47,40 +46,15 @@ export const TutorialsPage = observer(() => {
                     <TabPanel value="1">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
-                            Tutorials.tutorialVideoList.map((card) => {
-                                return filteredValue(card) &&
-                                    <div className='card-container' key={ card.href }>
-                                        <div className='card-video-preview'>
-                                            <VideoIntegration link={ card.href } playerWidth={ 200 } playerHeight={ 160 } />
-                                        </div>
-                                        <div>
-                                           <span>
-                                               &#128640;
-                                               <a href={ card.href } target='_blank' className='card-title'>{ card.title }</a>
-                                           </span>
-                                           <p className='card-text'>{ card.text }</p>
-                                        </div>
-                                    </div>
+                            appStore.data.tutorials.map((card) => {
+                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } />
                             }) }
                     </TabPanel>
                     <TabPanel value="2">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
-                            Tutorials.tutorialTextList.map((card) => {
-                                return filteredValue(card) &&
-                                    <div className='card-container' key={ card.href }>
-                                        <div className='card-tags'>
-                                            { parsedTags(card.tags) }
-                                        </div>
-                                        <div className='card-divider'/>
-                                        <div>
-                                           <span>
-                                               &#128640;
-                                               <a href={ card.href } target='_blank' className='card-title'>{ card.title }</a>
-                                           </span>
-                                            <p className='card-text'>{ card.text }</p>
-                                        </div>
-                                    </div>
+                            appStore.data.tutorials.map((card) => {
+                                return filteredValue(card) && !isVideo(card.href) && <Card {...card} />
                             }) }
                     </TabPanel>
                 </TabContext>
