@@ -8,11 +8,38 @@ import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
 import appStore, { useFormField } from '../store'
 
-export const AddForm = observer((type: string) => {
-    const href = useFormField();
+/** интерфейс для инпутов формы */
+interface IFormInput {
+    label: string;
+    name: string;
+    formField?: any;
+}
+
+interface IFormProps {
+    type: string;
+    inputList: IFormInput[];
+}
+
+export const AddForm = observer(({type, inputList}: IFormProps) => {
+    inputList.forEach(input => input.formField = useFormField())
+
+    /** Сброс формы */
+    const discardForm = () => {
+        inputList.forEach(input => input.formField.reset())
+    }
+
     return (
         <>
-            {/** TODO map переданных полей - назв. + ссылка  */}
+            { inputList.map(input => {
+                <TextField
+                    label={ input.label }
+                    type="text"
+                    variant="standard"
+                    name={ input.name }   // TODO
+                    { ...input.formField }
+                    fullWidth
+                />
+            }) }
             <div className='form-controls'>
                 <Button
                     variant="contained"
@@ -26,7 +53,7 @@ export const AddForm = observer((type: string) => {
                     color="primary"
                     sx={{ p: '10px' }}
                     aria-label="directions"
-                    onClick = { () => href.reset() }
+                    onClick = { () => discardForm() }
                 >
                     <DeleteIcon />
                 </IconButton>

@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-interface VideoProps {
+interface IVideoProps {
     link: string,
     playerWidth: number,
     playerHeight: number
@@ -15,7 +15,7 @@ const monileWidthK = 1.8;
 const monileHeightK = 1.65;
 const isMobile = window.navigator.userAgent.toLowerCase().includes("mobi");
 
-export const VideoIntegration = ({ link, playerWidth, playerHeight }: VideoProps) => {
+export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProps) => {
     const getLink = () => {
         const videoCode = link.split('=');
         return 'https://www.youtube.com/embed/' + videoCode[1];
