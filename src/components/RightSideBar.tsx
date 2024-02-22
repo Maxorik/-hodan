@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
 import appStore from 'store'
-import { AddResource, AddRadio, AddTutorial } from 'pages'
+// import { AddResource, AddRadio, AddTutorial } from 'pages'
 import { AddForm } from 'components'
 
 export const RightSideBar = observer(() => {
@@ -11,10 +11,18 @@ export const RightSideBar = observer(() => {
 
             </div>
             <div className='content-container'>
-                { appStore.activePage === 'resources' && <AddResource/> }
-                { appStore.activePage === 'radio' && <AddForm type={ 'radio' } inputList={ [{ label: 'Ссылка на Youtube', name: 'href' }] } /> }
-                {/*{ appStore.activePage === 'radio' && <AddRadio/> }*/}
-                { appStore.activePage === 'tutorials' && <AddTutorial/> }
+                { appStore.activePage === 'radio' && <AddForm
+                    type={ 'radio' }
+                    inputList={ [{ label: 'Ссылка на Youtube', name: 'href' }] }
+                /> }
+                { appStore.activePage === 'resources' && <AddForm
+                    type={ 'resources' }
+                    inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
+                /> }
+                { appStore.activePage === 'tutorials' && <AddForm
+                    type={ 'tutorials' }
+                    inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
+                /> }
             </div>
         </div>
     );

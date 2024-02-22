@@ -47,7 +47,7 @@ class AppMainStore {
     async getData(type: string) {
         try {
             const response = await axios.get(this.url[type]);
-            this.data[type] = Object.values(response.data);
+            this.data[type] = Object.values(response.data).reverse();
         } catch (err) {
             console.error(err.toJSON());
         }
@@ -55,12 +55,15 @@ class AppMainStore {
 
     /** Добавить запись */
     addRecord(type: string, data: any) {
-        axios.post(this.url[type], { ...data })
-            .finally(function () { try{
+        const payload = data.reduce((acc, item) => {
+            acc[item.name] = item.formField.value;
+            return acc;
+        }, {});
+
+        payload && axios.post(this.url[type], { ...payload })
+            .finally(() =>
                 this.getData(type)
-            } catch (e) {
-                console.log(e)
-            } })
+            )
     }
 
     /** Активная страница */

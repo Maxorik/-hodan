@@ -9,15 +9,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import appStore, { useFormField } from '../store'
 
 /** интерфейс для инпутов формы */
+interface IFormProps {
+    type: string;
+    inputList: IFormInput[];
+}
 interface IFormInput {
     label: string;
     name: string;
     formField?: any;
-}
-
-interface IFormProps {
-    type: string;
-    inputList: IFormInput[];
 }
 
 export const AddForm = observer(({type, inputList}: IFormProps) => {
@@ -30,22 +29,25 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
 
     return (
         <>
-            { inputList.map(input => {
-                <TextField
+            { inputList.map(input => <TextField
                     label={ input.label }
                     type="text"
                     variant="standard"
                     name={ input.name }   // TODO
                     { ...input.formField }
                     fullWidth
-                />
-            }) }
+                />)
+            }
+
             <div className='form-controls'>
                 <Button
                     variant="contained"
                     endIcon={<SendIcon />}
                     className='mr-8'
-                    onClick={ () => appStore.addRecord(type, {}) }  // TODO
+                    onClick={ () => {
+                        appStore.addRecord(type, inputList);
+                        discardForm();
+                    } }
                 >
                     Добавить
                 </Button>
