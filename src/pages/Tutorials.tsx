@@ -38,7 +38,7 @@ export const TutorialsPage = observer(() => {
             <Box sx={{ width: '100%', typography: 'body1' }}>
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <TabList onChange={handleChange} >
+                        <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
                             <Tab label="Видео" value="1" />
                             <Tab label="Статьи" value="2" />
                         </TabList>

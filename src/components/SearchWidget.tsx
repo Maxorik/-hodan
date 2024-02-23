@@ -21,7 +21,7 @@ export const SearchWidget = observer(() => {
                 value={ appStore.searchedValue }
             />
             <IconButton
-                color="primary"
+                color="success"
                 sx={{ p: '10px' }}
                 aria-label="directions"
                 onClick = { () => appStore.discardSearchValue() }

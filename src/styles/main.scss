@@ -1,11 +1,10 @@
-$info-color: hsla(210, 60%, 65%, 1);
 $content-color: hsla(0, 0%, 80%, 1);
-$href-color: hsla(180, 100%, 86%, 0.89);
-$href-hover-color: hsla(57, 100%, 76%, 0.89);
+$title-color: hsl(40,73.3%,66.3%);
+$controller-color: hsl(98,20.5%,43.9%);
+$href-hover-color: hsl(18,61.7%,45.1%);
 $bg-color: hsla(210, 20%, 10%, 0.8);
 $divider-color: hsla(210, 60%, 65%, 0.2);
 $header-color: #16202a;
-$highlight-color: hsl(26, 85%, 57%);
 
 @import './card';
 @import './containers';
@@ -26,14 +25,14 @@ $highlight-color: hsl(26, 85%, 57%);
   position: absolute;
 }
 
-.content-color {
-  color: $content-color;
+.logo-title {
+  color: hsl(179,99.2%,46.9%);
 }
 
 a {
   outline: none;
   text-decoration: none;
-  color: $href-color;
+  color: $title-color;
   font-weight: 500;
 
   &:hover {
@@ -43,20 +42,6 @@ a {
       margin-left: 6px;
     }
   }
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background-color: $bg-color;
-  padding: 4px;
-  border-radius: 4px;
-  color: $content-color;
-  min-height: 200px;
-  border: 1px solid $info-color;
 }
 
 .MuiIconButton-root {

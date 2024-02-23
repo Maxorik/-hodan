@@ -29,6 +29,7 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
 
     return (
         <>
+            <p className='container-title'>Новая запись:</p>
             { inputList.map(input => <TextField
                     label={ input.label }
                     type="text"
@@ -38,7 +39,6 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
                     fullWidth
                 />)
             }
-
             <div className='form-controls'>
                 <Button
                     variant="contained"
@@ -48,11 +48,12 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
                         appStore.addRecord(type, inputList);
                         discardForm();
                     } }
+                    color="success"
                 >
                     Добавить
                 </Button>
                 <IconButton
-                    color="primary"
+                    color="success"
                     sx={{ p: '10px' }}
                     aria-label="directions"
                     onClick = { () => discardForm() }

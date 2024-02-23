@@ -5,7 +5,7 @@
   height: 100vh;
   overflow-x: hidden;
   gap: 2px;
-  color: $info-color;
+  color: $title-color;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -90,4 +90,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container-title {
+  color: $title-color;
+  margin-bottom: 8px;
 }
