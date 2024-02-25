@@ -17,12 +17,17 @@
 .header-container {
   height: 64px;
   width:  100%;
-  min-width: 40px;
+  min-width: 160px;
   box-shadow: 0 0.5rem 0.5rem -0.5rem hsla(0,0%,0%,.25);
   background: $header-color;
   padding: .75rem;
   display: flex;
   align-items: center;
+}
+
+.middle-content-container {
+  margin-top: 64px;
+  min-width: 780px;
 }
 
 .fixed-main {
@@ -36,6 +41,7 @@
   width: calc((100vw - 800px) / 2);
   height: 100%;
   flex: 0 0 auto;
+  min-width: 160px;
 }
 
 .main-content-container {
@@ -50,7 +56,9 @@
 }
 
 .card-container {
+  width: 770px;
   display: flex;
+  justify-content: space-between;
   margin-top: 10px;
   padding: 12px;
   background-color: $bg-color;

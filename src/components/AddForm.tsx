@@ -34,9 +34,10 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
                     label={ input.label }
                     type="text"
                     variant="standard"
-                    name={ input.name }   // TODO
+                    name={ input.name }
                     { ...input.formField }
                     fullWidth
+                    key={ input.name }
                 />)
             }
             <div className='form-controls'>

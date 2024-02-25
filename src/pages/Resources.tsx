@@ -23,7 +23,7 @@ export const ResourcePage = observer(() => {
             { isLoading ?
                <div className='loader-container'><div className='loader' /></div> :
                appStore.data.resoures.map((card) => {
-                   return filteredValue(card) && <Card {...card} key={ card.href } />
+                   return filteredValue(card) && <Card {...card} showTags={ true } key={ card.href } />
             }) }
         </div>
     );

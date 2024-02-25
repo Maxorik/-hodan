@@ -10,8 +10,10 @@ export const LeftSideBar = observer(() => {
     return (
         <div className="left-side-bar-container">
             <div className='header-container'>
-                <img src='../assets/icon.png' />
-                <p className='logo-title ml-8'>$hodan</p>
+                <div className='logo-title' onClick={ () => appStore.setActivePage('main') }>
+                    <img src='../assets/icon.png' />
+                    <p>$hodan</p>
+                </div>
             </div>
             <div className='content-container'>
                 <TreeView

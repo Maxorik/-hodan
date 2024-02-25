@@ -6,10 +6,14 @@ const contentColor = 'hsla(0, 0%, 80%, 1)';
 const bgColor = 'hsla(210, 20%, 10%, 1)';
 const dividerColor = 'hsla(210, 60%, 65%, 0.07)';
 const highlightColor = 'hsl(26, 85%, 57%)';
+const actionColor = 'hsl(280,22.7%,55.9%)';
 
 const themeOptions: ThemeOptions = createTheme({
     palette: {
         mode: 'dark',
+        info: {
+            main: actionColor,
+        },
         primary: {
             main: contentColor,
         },

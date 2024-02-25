@@ -26,6 +26,11 @@ $header-color: #16202a;
 }
 
 .logo-title {
+  display: flex;
+  width: 110px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
   color: hsl(179,99.2%,46.9%);
 }
 
