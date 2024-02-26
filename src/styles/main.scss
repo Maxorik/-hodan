@@ -77,6 +77,24 @@ img {
   cursor: pointer;
 }
 
+.center {
+  text-align: center;
+}
+
+.welcome-preview {
+  width: 500px;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 6px;
+}
+
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/** loader */
 .loader {
   width: 60px;
   display: flex;

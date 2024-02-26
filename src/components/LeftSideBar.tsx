@@ -4,7 +4,9 @@ import { TreeView } from '@mui/x-tree-view/TreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import appStore from 'store'
+import HdrStrongOutlinedIcon from '@mui/icons-material/HdrStrongOutlined';
+import appStore from 'store';
+import { Box } from '@mui/material';
 
 export const LeftSideBar = observer(() => {
     return (
@@ -22,9 +24,9 @@ export const LeftSideBar = observer(() => {
                     defaultExpandIcon={<ChevronRightIcon />}
                     defaultExpanded={['projects-parent']}
                 >
-                    <TreeItem nodeId="service-parent" label="Полезное" onClick={ () => appStore.setActivePage('resources') } />
+                    <TreeItem nodeId="service-parent" label="Ресурсы" onClick={ () => appStore.setActivePage('resources') } />
+                    <TreeItem nodeId="tutorials-parent" label="Туториалы" onClick={ () => appStore.setActivePage('tutorials') } />
                     <TreeItem nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
-                    <TreeItem nodeId="tutorials-parent" label="Знания" onClick={ () => appStore.setActivePage('tutorials') } />
                 </TreeView>
             </div>
         </div>

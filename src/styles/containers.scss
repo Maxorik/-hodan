@@ -104,3 +104,18 @@
   color: $title-color;
   margin-bottom: 8px;
 }
+
+.main-nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 600px;
+  margin: auto;
+
+  p {
+    cursor: pointer;
+    &:hover {
+      color: $href-hover-color;
+    }
+  }
+}
