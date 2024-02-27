@@ -26,6 +26,7 @@ class AppMainStore {
             setActivePage: action,
             searchedValue: observable,
             data: observable,
+            isAdmin: observable,
         });
     }
 
@@ -34,6 +35,12 @@ class AppMainStore {
         resoures: 'https://hodan-2ff80-default-rtdb.firebaseio.com/services.json',
         tutorials: 'https://hodan-2ff80-default-rtdb.firebaseio.com/tutorials.json',
         radio: 'https://hodan-2ff80-default-rtdb.firebaseio.com/radio.json'
+    }
+
+    /** Право на редактирование */
+    isAdmin = false;
+    setAdmin(state: boolean) {
+        this.isAdmin = state;
     }
 
     /** данные */

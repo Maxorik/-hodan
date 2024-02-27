@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import { ResourcePage, RadioPage, TutorialsPage, MainPage } from 'pages'
+import { ResourcePage, RadioPage, TutorialsPage, MainPage, ProjectsPage } from 'pages'
 import appStore from 'store'
 import { SearchWidget } from './SearchWidget';
 
@@ -17,6 +17,7 @@ export const MainContent = observer(() => {
                 { appStore.activePage === 'resources' && <ResourcePage/> }
                 { appStore.activePage === 'radio' && <RadioPage /> }
                 { appStore.activePage === 'tutorials' && <TutorialsPage /> }
+                { appStore.activePage === 'projects' && <ProjectsPage /> }
             </div>
         </div>
     );
