@@ -27,6 +27,7 @@ class AppMainStore {
             searchedValue: observable,
             data: observable,
             isAdmin: observable,
+            miniPlayerLink: observable,
         });
     }
 
@@ -84,6 +85,9 @@ class AppMainStore {
     discardSearchValue() {
         this.searchedValue = '';
     }
+
+    /** Выноска мини-плеера */
+    miniPlayerLink: string = null;
 
 }
 

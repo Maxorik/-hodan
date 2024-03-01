@@ -1,8 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
 import appStore from 'store'
-// import { AddResource, AddRadio, AddTutorial } from 'pages'
-import { AddForm } from 'components'
+import { AddForm, VideoIntegration } from 'components'
 
 export const RightSideBar = observer(() => {
     return (
@@ -23,6 +22,10 @@ export const RightSideBar = observer(() => {
                     type={ 'tutorials' }
                     inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
                 /> }
+            </div>
+
+            <div className='bottom-container'>
+                { appStore.miniPlayerLink && <VideoIntegration link={ appStore.miniPlayerLink } playerWidth={360} playerHeight={200}/> }
             </div>
         </div>
     );

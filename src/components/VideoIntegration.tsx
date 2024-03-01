@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import appStore from 'store'
 
 interface IVideoProps {
     link: string,
@@ -16,9 +17,10 @@ const monileHeightK = 1.65;
 const isMobile = window.navigator.userAgent.toLowerCase().includes("mobi");
 
 export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProps) => {
+    const videoId = link.split('=')[1];
+
     const getLink = () => {
-        const videoCode = link.split('=');
-        return 'https://www.youtube.com/embed/' + videoCode[1];
+        return 'https://www.youtube.com/embed/' + videoId;
     }
 
     const getWidth = () => {
@@ -29,8 +31,15 @@ export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProp
         return isMobile ? (playerHeight / monileHeightK) : playerHeight;
     }
 
+    const setMiniPlayer = () => {
+        appStore.miniPlayerLink = link;
+
+        console.log(appStore.miniPlayerLink)
+    }
+
     return(
         <div className='video-container'>
+            { appStore.miniPlayerLink !== link && <span className='mask' onClick={() => setMiniPlayer()}/> }
             {
                 // videoCode[1] &&
                 <iframe width ={ getWidth() }
