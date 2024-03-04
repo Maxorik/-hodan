@@ -27,6 +27,11 @@ export const TutorialsPage = observer(() => {
         return href.indexOf('youtube.com') !== -1;
     }
 
+    /** Это база знаний */
+    function isBase(tags: string) {
+        return tags.indexOf('base') !== -1;
+    }
+
     /** Переключатель табов */
     const [value, setValue] = useState('1');
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -41,6 +46,7 @@ export const TutorialsPage = observer(() => {
                         <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
                             <Tab label="Видео" value="1" />
                             <Tab label="Статьи" value="2" />
+                            <Tab label="Базы знаний" value="3" />
                         </TabList>
                     </Box>
                     <TabPanel value="1">
@@ -54,7 +60,14 @@ export const TutorialsPage = observer(() => {
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && <Card {...card} />
+                                return filteredValue(card) && !isVideo(card.href) && !isBase(card.tags) && <Card {...card} />
+                            }) }
+                    </TabPanel>
+                    <TabPanel value="3">
+                        { isLoading ?
+                            <div className='loader-container'><div className='loader' /></div> :
+                            appStore.data.tutorials.map((card) => {
+                                return filteredValue(card) && !isVideo(card.href) && isBase(card.tags) && <Card {...card} />
                             }) }
                     </TabPanel>
                 </TabContext>
