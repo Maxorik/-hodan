@@ -9,7 +9,7 @@ export const RightSideBar = observer(() => {
             <div className='header-container'>
 
             </div>
-            <div className='content-container'>
+            { appStore.isAdmin && <div className='content-container add-form-container'>
                 { appStore.activePage === 'radio' && <AddForm
                     type={ 'radio' }
                     inputList={ [{ label: 'Ссылка на Youtube', name: 'href' }] }
@@ -22,11 +22,11 @@ export const RightSideBar = observer(() => {
                     type={ 'tutorials' }
                     inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
                 /> }
-            </div>
+            </div> }
 
-            <div className='bottom-container'>
-                { appStore.miniPlayerLink && <VideoIntegration link={ appStore.miniPlayerLink } playerWidth={360} playerHeight={200}/> }
-            </div>
+            { appStore.miniPlayerLink && <div className='bottom-container'>
+                <VideoIntegration link={ appStore.miniPlayerLink } playerWidth={360} playerHeight={200}/>
+            </div> }
         </div>
     );
 })

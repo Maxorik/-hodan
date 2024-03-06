@@ -10,7 +10,7 @@ export const ResourcePage = observer(() => {
 
     useEffect(() => {
         setLoading(true);
-        appStore.getData('resoures').then(() => setLoading(false));
+        appStore.getData('resources').then(() => setLoading(false));
     }, []);
 
     function filteredValue(value: ICardProps) {
@@ -22,7 +22,7 @@ export const ResourcePage = observer(() => {
         <div className='content-container'>
             { isLoading ?
                <div className='loader-container'><div className='loader' /></div> :
-               appStore.data.resoures.map((card) => {
+               appStore.data.resources.map((card) => {
                    return filteredValue(card) && <Card {...card} showTags={ true } key={ card.href } />
             }) }
         </div>

@@ -29,41 +29,39 @@ export const AddForm = observer(({type, inputList}: IFormProps) => {
 
     return (
         <>
-            { appStore.isAdmin && <>
-                <p className='container-title'>Новая запись:</p>
-                { inputList.map(input => <TextField
-                        label={ input.label }
-                        type="text"
-                        variant="standard"
-                        name={ input.name }
-                        { ...input.formField }
-                        fullWidth
-                        key={ input.name }
-                    />)
-                }
-                <div className='form-controls'>
-                    <Button
-                        variant="contained"
-                        endIcon={<SendIcon />}
-                        className='mr-8'
-                        onClick={ () => {
-                            appStore.addRecord(type, inputList);
-                            discardForm();
-                        } }
-                        color="success"
-                    >
-                        Добавить
-                    </Button>
-                    <IconButton
-                        color="success"
-                        sx={{ p: '10px' }}
-                        aria-label="directions"
-                        onClick = { () => discardForm() }
-                    >
-                        <DeleteIcon />
-                    </IconButton>
-                </div>
-            </> }
+            <p className='container-title'>Новая запись:</p>
+            { inputList.map(input => <TextField
+                    label={ input.label }
+                    type="text"
+                    variant="standard"
+                    name={ input.name }
+                    { ...input.formField }
+                    fullWidth
+                    key={ input.name }
+                />)
+            }
+            <div className='form-controls'>
+                <Button
+                    variant="contained"
+                    endIcon={<SendIcon />}
+                    className='mr-8'
+                    onClick={ () => {
+                        appStore.addRecord(type, inputList);
+                        discardForm();
+                    } }
+                    color="success"
+                >
+                    Добавить
+                </Button>
+                <IconButton
+                    color="success"
+                    sx={{ p: '10px' }}
+                    aria-label="directions"
+                    onClick = { () => discardForm() }
+                >
+                    <DeleteIcon />
+                </IconButton>
+            </div>
         </>
     );
 })

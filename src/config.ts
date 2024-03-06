@@ -1,5 +1,5 @@
 const config = {
-    password: 'loki102726'
+    password: 'showme'
 }
 
 export default config;
