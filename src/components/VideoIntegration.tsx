@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import appStore from 'store'
+import appStore, { isMobile } from 'store'
 
 interface IVideoProps {
     link: string,
@@ -12,9 +12,8 @@ interface IVideoProps {
 }
 
 /** Настройки для смартфонов и т.п. */
-const monileWidthK = 1.8;
+const monileWidthK = 1;
 const monileHeightK = 1.65;
-const isMobile = window.navigator.userAgent.toLowerCase().includes("mobi");
 
 export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProps) => {
     const videoId = link.split('=')[1];
@@ -33,15 +32,12 @@ export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProp
 
     const setMiniPlayer = () => {
         appStore.miniPlayerLink = link;
-
-        console.log(appStore.miniPlayerLink)
     }
 
     return(
         <div className='video-container'>
-            { appStore.miniPlayerLink !== link && <span className='mask' onClick={() => setMiniPlayer()}/> }
+            { !isMobile && appStore.miniPlayerLink !== link && <span className='mask' onClick={() => setMiniPlayer()}/> }
             {
-                // videoCode[1] &&
                 <iframe width ={ getWidth() }
                         height ={ getHeight() }
                         src = { getLink() }

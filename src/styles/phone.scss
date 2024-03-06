@@ -1,0 +1,26 @@
+@media only screen and (max-device-width: 1000px) {
+  * {
+    font-size: 24px;
+  }
+
+  .fixed-main {
+    left: 0;
+  }
+
+  .middle-content-container, .main-nav-container, .welcome-preview {
+    min-width: 100px;
+    width: 100% !important;
+  }
+
+  .tags-container, .video-card-container {
+    display: block;
+  }
+
+  div[role=tabpanel] {
+    padding: 0;
+  }
+
+  .card-video-preview {
+    display: none;
+  }
+}

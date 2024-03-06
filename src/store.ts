@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { makeObservable, observable, action } from "mobx";
 import axios from "axios";
 
+export const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 export interface ICardProps {
     title: string,
     text: string,

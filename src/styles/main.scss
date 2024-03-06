@@ -8,7 +8,7 @@ $header-color: #16202a;
 
 @import './card';
 @import './containers';
-@import './_base';
+@import './phone';
 
 *,
 *::before,
@@ -120,4 +120,15 @@ img {
   33%  {background-position:10px  10px}
   66%  {background-position:0    20px,10px 10px,20px 0   }
   100% {background-position:0     0, 10px 10px, 20px 20px}
+}
+
+
+.mt-20 {
+  margin-top: 20px !important;
+}
+.mr-8 {
+  margin-right: 8px !important;
+}
+.ml-8 {
+  margin-left: 8px;
 }
