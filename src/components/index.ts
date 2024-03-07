@@ -4,5 +4,6 @@ export { MainContent } from './MainContent'
 export { SearchWidget } from './SearchWidget'
 export { VideoIntegration } from './VideoIntegration'
 export { Card } from './Card'
+export { AddFormComponent } from './AddFormComponent'
 export { AddForm } from './AddForm'
 

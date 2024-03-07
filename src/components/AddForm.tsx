@@ -3,65 +3,27 @@
  */
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import { Button, IconButton, TextField } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
-import DeleteIcon from '@mui/icons-material/Delete';
-import appStore, { useFormField } from '../store'
+import { AddFormComponent } from 'components'
+import appStore from '../store'
 
-/** интерфейс для инпутов формы */
-interface IFormProps {
-    type: string;
-    inputList: IFormInput[];
-}
-interface IFormInput {
-    label: string;
-    name: string;
-    formField?: any;
-}
-
-export const AddForm = observer(({type, inputList}: IFormProps) => {
-    inputList.forEach(input => input.formField = useFormField())
-
-    /** Сброс формы */
-    const discardForm = () => {
-        inputList.forEach(input => input.formField.reset())
-    }
+export const AddForm = observer(() => {
 
     return (
         <>
-            <p className='container-title'>Новая запись:</p>
-            { inputList.map(input => <TextField
-                    label={ input.label }
-                    type="text"
-                    variant="standard"
-                    name={ input.name }
-                    { ...input.formField }
-                    fullWidth
-                    key={ input.name }
-                />)
-            }
-            <div className='form-controls'>
-                <Button
-                    variant="contained"
-                    endIcon={<SendIcon />}
-                    className='mr-8'
-                    onClick={ () => {
-                        appStore.addRecord(type, inputList);
-                        discardForm();
-                    } }
-                    color="success"
-                >
-                    Добавить
-                </Button>
-                <IconButton
-                    color="success"
-                    sx={{ p: '10px' }}
-                    aria-label="directions"
-                    onClick = { () => discardForm() }
-                >
-                    <DeleteIcon />
-                </IconButton>
-            </div>
+            { appStore.isAdmin && <div className='content-container add-form-container'>
+                { appStore.activePage === 'radio' && <AddFormComponent
+                    type={ 'radio' }
+                    inputList={ [{ label: 'Ссылка на Youtube', name: 'href' }] }
+                /> }
+                { appStore.activePage === 'resources' && <AddFormComponent
+                    type={ 'resources' }
+                    inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
+                /> }
+                { appStore.activePage === 'tutorials' && <AddFormComponent
+                    type={ 'tutorials' }
+                    inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
+                /> }
+            </div> }
         </>
     );
 })
