@@ -147,3 +147,14 @@
   background-color: $header-color;
   margin-top: 4px;
 }
+
+.project-container {
+  display: block;
+}
+
+.project-gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

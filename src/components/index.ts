@@ -6,4 +6,5 @@ export { VideoIntegration } from './VideoIntegration'
 export { Card } from './Card'
 export { AddFormComponent } from './AddFormComponent'
 export { AddForm } from './AddForm'
+export { ProjectCard } from './ProjectCard'
 

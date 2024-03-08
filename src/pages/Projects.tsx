@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
+import { ProjectCard } from 'components'
 
 export const ProjectsPage = observer(() => {
-    const [isLoading, setLoading] = useState(false);
-
-    useEffect(() => {
-        setLoading(true);
-        // appStore.getData('tutorials').then(() => setLoading(false));
-    }, []);
-
 
     return (
         <div className='content-container'>
-            projects...
+            <ProjectCard
+                title = 'Free Pee Tomsk'
+                repoHref = 'https://github.com/Maxorik/freepeetomsk'
+                webHref = 'https://maxorik.github.io/freepeetomsk'
+                description = 'Проект задумывался как карта г. Томска, на которой отмечены бесплатные туалеты, либо места с ними. Есть возможность добавить новое место самому.'
+                photo ={ ['freepee1', 'freepee2', 'freepee3'] }
+            />
         </div>
     );
 })
