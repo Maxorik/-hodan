@@ -11,7 +11,7 @@ export const MainPage = observer(() => {
             <div className='main-nav-container'>
                 <p onClick={ () => appStore.setActivePage('resources') }>Ресурсы</p> &bull;
                 <p onClick={ () => appStore.setActivePage('tutorials') }>Туториалы</p> &bull;
-                <p onClick={ () => appStore.setActivePage('radio') }>Радио</p>
+                <p onClick={ () => appStore.setActivePage('projects') }>Проекты</p>
             </div>
         </div>
     );

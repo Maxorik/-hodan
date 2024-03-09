@@ -58,7 +58,7 @@ export const Card = ({ href, text, title, tags, showVideoPreview, showTags }: Ca
                 }
             </div> }
             <div className='card-content'>
-                <a href={ href } target='_blank' className='card-title'>{ title }</a>
+                <a href={ href } target='_blank'>{ title }</a>
                 <p className='card-text'>{ text }</p>
             </div>
         </div>

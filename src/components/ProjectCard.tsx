@@ -24,29 +24,27 @@ export const ProjectCard = observer(({ title, repoHref, webHref, description, ph
     }
 
     return (
-        <div className='content-container'>
-            <div className='card-container project-container'>
-                <p className='card-title'> { title } </p>
-                <p className='card-text'> Репозиторий: <a className='card-title' target='_blank' href={repoHref}>{ hrefParser(repoHref) }</a></p>
-                { webHref && <p className='card-text'> Веб: <a className='card-title' target='_blank' href={ webHref }>{ hrefParser(repoHref) }</a></p> }
-                <p className='card-text mb-20'> { description } </p>
-                { photo && <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2-content"
-                        id="panel2-header"
-                    >
-                        Показать фотографии приложения
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <div className='project-gallery-container'>
-                            { photo.map(image =>
-                                <img src={`./assets/projects/${image}.png`} key={ image } />
-                            ) }
-                        </div>
-                    </AccordionDetails>
-                </Accordion> }
-            </div>
+        <div className='card-container project-container'>
+            <p className='card-title'> { title } </p>
+            <p className='card-text'> Репозиторий: <a target='_blank' href={repoHref}>{ hrefParser(repoHref) }</a></p>
+            { webHref && <p className='card-text'> Веб: <a target='_blank' href={ webHref }>{ hrefParser(repoHref) }</a></p> }
+            <p className='card-text mb-20'> { description } </p>
+            { photo && <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2-content"
+                    id="panel2-header"
+                >
+                    Показать скриншоты приложения
+                </AccordionSummary>
+                <AccordionDetails>
+                    <div className='project-gallery-container'>
+                        { photo.map(image =>
+                            <img src={`./assets/projects/${image}.png`} key={ image } />
+                        ) }
+                    </div>
+                </AccordionDetails>
+            </Accordion> }
         </div>
     );
 })
