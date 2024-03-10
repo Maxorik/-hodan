@@ -33,7 +33,7 @@ export const TutorialsPage = observer(() => {
     }
 
     /** Переключатель табов */
-    const [value, setValue] = useState('1');
+    const [value, setValue] = useState('videos');
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
@@ -44,26 +44,26 @@ export const TutorialsPage = observer(() => {
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
-                            <Tab label="Видео" value="1" />
-                            <Tab label="Статьи" value="2" />
-                            <Tab label="Базы знаний" value="3" />
+                            <Tab label="Видео" value="videos" />
+                            <Tab label="Статьи" value="letters" />
+                            <Tab label="Базы знаний" value="bases" />
                         </TabList>
                     </Box>
-                    <TabPanel value="1">
+                    <TabPanel value="videos">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
                                 return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } />
                             }) }
                     </TabPanel>
-                    <TabPanel value="2">
+                    <TabPanel value="letters">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
                                 return filteredValue(card) && !isVideo(card.href) && !isBase(card.tags) && <Card {...card} />
                             }) }
                     </TabPanel>
-                    <TabPanel value="3">
+                    <TabPanel value="bases">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
