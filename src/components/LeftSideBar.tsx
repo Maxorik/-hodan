@@ -6,7 +6,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import HdrStrongOutlinedIcon from '@mui/icons-material/HdrStrongOutlined';
 import appStore from 'store';
-import { Box } from '@mui/material';
 
 export const LeftSideBar = observer(() => {
     return (
@@ -17,17 +16,17 @@ export const LeftSideBar = observer(() => {
                     <p>$hodan</p>
                 </div>
             </div>
-            <div className='content-container'>
+            <div>
                 <TreeView
                     aria-label="file system navigator"
                     defaultCollapseIcon={<ExpandMoreIcon />}
                     defaultExpandIcon={<ChevronRightIcon />}
                     defaultExpanded={['projects-parent']}
                 >
-                    <TreeItem nodeId="service-parent" label="Ресурсы" onClick={ () => appStore.setActivePage('resources') } />
-                    <TreeItem nodeId="tutorials-parent" label="Туториалы" onClick={ () => appStore.setActivePage('tutorials') } />
-                    <TreeItem nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
-                    <TreeItem nodeId="projects-parent" label="Проекты" onClick={ () => appStore.setActivePage('projects') } />
+                    <TreeItem className='tree-item' nodeId="service-parent" label="Ресурсы" onClick={ () => appStore.setActivePage('resources') } />
+                    <TreeItem className='tree-item' nodeId="tutorials-parent" label="Туториалы" onClick={ () => appStore.setActivePage('tutorials') } />
+                    <TreeItem className='tree-item' nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
+                    <TreeItem className='tree-item' nodeId="projects-parent" label="Проекты" onClick={ () => appStore.setActivePage('projects') } />
                 </TreeView>
             </div>
         </div>
