@@ -7,4 +7,5 @@ export { Card } from './Card'
 export { AddFormComponent } from './AddFormComponent'
 export { AddForm } from './AddForm'
 export { ProjectCard } from './ProjectCard'
+export { Footer } from './Footer'
 

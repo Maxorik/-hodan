@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { ImagesearchRollerOutlined, SettingsSuggestOutlined, RocketLaunchOutlined, PublicOutlined,
     PrecisionManufacturingOutlined, ViewQuiltOutlined, ForestOutlined,
     SkateboardingOutlined, CastleOutlined, SatelliteOutlined, HistoryEduOutlined,
-    SpellcheckOutlined, BuildOutlined } from '@mui/icons-material';
+    SpellcheckOutlined, BuildOutlined, AccountTreeOutlined } from '@mui/icons-material';
 
 
 interface CardProps {
@@ -36,7 +36,8 @@ const icons = {
     preview: SatelliteOutlined,
     fonts: HistoryEduOutlined,
     regex: SpellcheckOutlined,
-    test: BuildOutlined
+    test: BuildOutlined,
+    project: AccountTreeOutlined
 }
 
 export const Card = ({ href, text, title, tags, showVideoPreview, showTags }: CardProps) => {
