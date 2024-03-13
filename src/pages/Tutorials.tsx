@@ -33,7 +33,7 @@ export const TutorialsPage = observer(() => {
     }
 
     /** Переключатель табов */
-    const [value, setValue] = useState('videos');
+    const [value, setValue] = useState('bases');
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
@@ -44,9 +44,9 @@ export const TutorialsPage = observer(() => {
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
-                            <Tab label="Видео" value="videos" />
-                            <Tab label="Статьи" value="letters" />
                             <Tab label="Базы знаний" value="bases" />
+                            <Tab label="Статьи" value="letters" />
+                            <Tab label="Видео" value="videos" />
                         </TabList>
                     </Box>
                     <TabPanel value="videos">
