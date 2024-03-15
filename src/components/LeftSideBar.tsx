@@ -23,10 +23,11 @@ export const LeftSideBar = observer(() => {
                     defaultExpandIcon={<ChevronRightIcon />}
                     defaultExpanded={['projects-parent']}
                 >
-                    <TreeItem className='tree-item' nodeId="service-parent" label="Ресурсы" onClick={ () => appStore.setActivePage('resources') } />
+                    <TreeItem className='tree-item' nodeId="service-parent" label="Сервисы" onClick={ () => appStore.setActivePage('resources') } />
                     <TreeItem className='tree-item' nodeId="tutorials-parent" label="Туториалы" onClick={ () => appStore.setActivePage('tutorials') } />
                     <TreeItem className='tree-item' nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
                     <TreeItem className='tree-item' nodeId="projects-parent" label="Проекты" onClick={ () => appStore.setActivePage('projects') } />
+                    <TreeItem className='tree-item' nodeId="inspire-parent" label="Разное" onClick={ () => appStore.setActivePage('inspire') } />
                 </TreeView>
             </div>
         </div>

@@ -37,7 +37,8 @@ class AppMainStore {
     url = {
         resources: 'https://hodan-2ff80-default-rtdb.firebaseio.com/services.json',
         tutorials: 'https://hodan-2ff80-default-rtdb.firebaseio.com/tutorials.json',
-        radio: 'https://hodan-2ff80-default-rtdb.firebaseio.com/radio.json'
+        radio: 'https://hodan-2ff80-default-rtdb.firebaseio.com/radio.json',
+        inspire: 'https://hodan-2ff80-default-rtdb.firebaseio.com/inspire.json',
     }
 
     /** Право на редактирование */
@@ -51,6 +52,7 @@ class AppMainStore {
         resources: [] as ICardProps[],
         tutorials: [] as ICardProps[],
         radio: [] as ICardProps[],
+        inspire: [] as ICardProps[],
     }
 
     /** получить данные */

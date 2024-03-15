@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { observer } from "mobx-react-lite";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { IconButton, Modal } from '@mui/material';
-import { ResourcePage, RadioPage, TutorialsPage, MainPage, ProjectsPage } from 'pages'
+import { ResourcePage, RadioPage, TutorialsPage, MainPage, ProjectsPage, InspirePage } from 'pages'
 import appStore, { isMobile } from 'store'
 import { SearchWidget, AddForm } from 'components';
 
 export const MainContent = observer(() => {
-    const pageWithSearch = ['resources', 'tutorials'];
+    const pageWithSearch = ['resources', 'tutorials', 'inspire'];
     const [showModal, setShowModal] = useState(false);
 
     const eventModal = (state: boolean) => {
@@ -36,6 +36,7 @@ export const MainContent = observer(() => {
                 { appStore.activePage === 'radio' && <RadioPage /> }
                 { appStore.activePage === 'tutorials' && <TutorialsPage /> }
                 { appStore.activePage === 'projects' && <ProjectsPage /> }
+                { appStore.activePage === 'inspire' && <InspirePage /> }
             </div>
             { showModal && <Modal
                 open={ showModal }
