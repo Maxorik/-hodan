@@ -3,9 +3,10 @@
  */
 import React from 'react';
 import { observer } from "mobx-react-lite";
-import { Button, IconButton, TextField } from '@mui/material';
+import { Button, IconButton, TextField, Tooltip } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import appStore, { useFormField } from '../store'
 
 /** интерфейс для инпутов формы */
@@ -61,6 +62,9 @@ export const AddFormComponent = observer(({type, inputList}: IFormProps) => {
                 >
                     <DeleteIcon />
                 </IconButton>
+                <Tooltip title="base - база данных; inspire - статья для вдохновения">
+                    <IconButton><HelpOutlineOutlinedIcon /></IconButton>
+                </Tooltip>
             </div>
         </>
     );
