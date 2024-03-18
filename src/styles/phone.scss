@@ -20,7 +20,7 @@
     padding: 0;
   }
 
-  .card-video-preview {
+  .card-video-preview, .divider-pc {
     display: none;
   }
 
@@ -31,5 +31,19 @@
 
   .content-container {
     margin-bottom: 40px;
+  }
+
+  .main-nav-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    p {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .divider-mobile {
+    display: inline-block;
+    margin: 0 8px;
   }
 }

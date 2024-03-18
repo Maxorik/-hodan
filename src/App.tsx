@@ -4,6 +4,7 @@ import themeOptions from './styles/mui-theme'
 import { LeftSideBar, MainContent, RightSideBar, Footer } from "components";
 import { isMobile } from './store'
 import './styles/main.scss'
+import './styles/phone.scss'
 
 function App() {
     return (

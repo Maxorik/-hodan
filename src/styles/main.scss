@@ -8,7 +8,6 @@ $header-color: #16202a;
 
 @import './card';
 @import './containers';
-@import './phone';
 
 *,
 *::before,
@@ -146,6 +145,10 @@ img {
   width: 18px;
   height: 18px;
   margin-right: 6px;
+}
+
+.divider-mobile {
+  display: none;
 }
 
 .mt-20 {
