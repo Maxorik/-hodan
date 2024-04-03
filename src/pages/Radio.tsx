@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { VideoIntegration } from 'components';
 import appStore, { ICardProps } from 'store';
 
-export const RadioPage = observer(() => {
+export default observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
