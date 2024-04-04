@@ -5,7 +5,7 @@ import { TextField } from '@mui/material';
 import appStore, { ICardProps } from 'store';
 import { SearchWidget, Card } from 'components';
 
-export default observer(() => {
+export const ResourcePage = observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {

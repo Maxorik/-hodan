@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { observer } from "mobx-react-lite";
 import appStore from 'store';
 
-export default observer(() => {
+export const MainPage = observer(() => {
     return (
         <div className='content-container welcome-page'>
             <p className='center'>&bull; Добро пожаловать! &bull;</p>

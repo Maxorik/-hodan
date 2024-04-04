@@ -8,7 +8,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { VideoIntegration, Card } from "components";
 import appStore, { ICardProps } from 'store';
 
-export default observer(() => {
+export const TutorialsPage = observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {

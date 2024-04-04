@@ -7,7 +7,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
-export default observer(() => {
+export const ProjectsPage = observer(() => {
     /** Переключатель табов */
     const [value, setValue] = useState('web-app');
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {

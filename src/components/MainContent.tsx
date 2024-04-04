@@ -1,16 +1,10 @@
-import React, { useState, lazy } from 'react';
+import React, { useState } from 'react';
 import { observer } from "mobx-react-lite";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { IconButton, Modal } from '@mui/material';
+import { ResourcePage, RadioPage, TutorialsPage, MainPage, ProjectsPage, InspirePage } from 'pages'
 import appStore, { isMobile } from 'store'
 import { SearchWidget, AddForm } from 'components';
-
-const ResourcePage = lazy(() => import('../pages/Resources'));
-const RadioPage = lazy(() => import('../pages/Radio'));
-const TutorialsPage = lazy(() => import('../pages/Tutorials'));
-const MainPage = lazy(() => import('../pages/Main'));
-const ProjectsPage = lazy(() => import('../pages/Projects'));
-const InspirePage = lazy(() => import('../pages/Inspire'));
 
 export const MainContent = observer(() => {
     const pageWithSearch = ['resources', 'tutorials', 'inspire'];

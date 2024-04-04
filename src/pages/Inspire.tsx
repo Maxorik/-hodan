@@ -8,7 +8,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { VideoIntegration, Card } from "components";
 import appStore, { ICardProps } from 'store';
 
-export default observer(() => {
+export const InspirePage = observer(() => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -53,21 +53,21 @@ export default observer(() => {
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && isDiy(card.tags) && <Card {...card} key={ card.href }/>
+                                return filteredValue(card) && !isVideo(card.href) && isDiy(card.tags) && <Card {...card} />
                             }) }
                     </TabPanel>
                     <TabPanel value="sites">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && !isDiy(card.tags) && <Card {...card} key={ card.href } />
+                                return filteredValue(card) && !isVideo(card.href) && !isDiy(card.tags) && <Card {...card} />
                             }) }
                     </TabPanel>
                     <TabPanel value="videos">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } key={ card.href } />
+                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } />
                             }) }
                     </TabPanel>
                 </TabContext>
