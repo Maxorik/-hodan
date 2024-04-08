@@ -1,10 +1,10 @@
 @media only screen and (max-device-width: 1000px) {
-  * {
-    font-size: 24px;
-  }
-
   .fixed-main {
     left: 0;
+  }
+
+  * {
+    font-size: 17px;
   }
 
   .middle-content-container, .main-nav-container, .welcome-preview {
@@ -25,7 +25,7 @@
   }
 
   .mobile-logo-title {
-    margin-right: 12px;
+    margin: 4px 12px 0 0;
     width: 60px;
   }
 
@@ -34,16 +34,19 @@
   }
 
   .main-nav-container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    p {
-      display: flex;
-      justify-content: center;
-    }
-  }
+    gap: 0;
+    border: 1px solid hsl(171, 8%, 69%);
+    border-radius: 4px;
+    text-align: center;
 
-  .divider-mobile {
-    display: inline-block;
-    margin: 0 8px;
+    p {
+      line-height: 31px;
+      border-right: 1px solid hsl(171, 8%, 69%);
+      flex: 1 auto;
+
+      &:last-child {
+        border: none;
+      }
+    }
   }
 }

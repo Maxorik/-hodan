@@ -8,29 +8,13 @@ export const MainPage = observer(() => {
             <p className='center'>&bull; Добро пожаловать! &bull;</p>
             <img className='welcome-preview' src={ isMobile ? '../assets/welcome_phone.webp' : '../assets/welcome.webp' } />
             <div className='main-nav-container'>
-                <p onClick={ () => appStore.setActivePage('resources') }>
-                    <span className='divider-mobile'>&bull;</span>
-                    Сервисы
-                    <span className='divider-mobile'>&bull;</span>
-                </p>
+                <p onClick={ () => appStore.setActivePage('resources') }> Сервисы </p>
                 <span className='divider-pc'>&bull;</span>
-                <p onClick={ () => appStore.setActivePage('tutorials') }>
-                    <span className='divider-mobile'>&bull;</span>
-                    Туториалы
-                    <span className='divider-mobile'>&bull;</span>
-                </p>
+                <p onClick={ () => appStore.setActivePage('tutorials') }> Туториалы </p>
                 <span className='divider-pc'>&bull;</span>
-                <p onClick={ () => appStore.setActivePage('projects') }>
-                    <span className='divider-mobile'>&bull;</span>
-                    Проекты
-                    <span className='divider-mobile'>&bull;</span>
-                </p>
+                <p onClick={ () => appStore.setActivePage('projects') }> Проекты </p>
                 <span className='divider-pc'>&bull;</span>
-                <p onClick={ () => appStore.setActivePage('inspire') }>
-                    <span className='divider-mobile'>&bull;</span>
-                    Разное
-                    <span className='divider-mobile'>&bull;</span>
-                </p>
+                <p onClick={ () => appStore.setActivePage('inspire') }> Разное </p>
             </div>
         </div>
     );
