@@ -43,9 +43,7 @@ class AppMainStore {
 
     /** Право на редактирование */
     isAdmin = false;
-    setAdmin(state: boolean) {
-        this.isAdmin = state;
-    }
+    setAdmin(state: boolean) { this.isAdmin = state }
 
     /** данные */
     data = {
@@ -80,15 +78,11 @@ class AppMainStore {
 
     /** Активная страница */
     activePage: string = 'main';
-    setActivePage(page: string) {
-        this.activePage = page;
-    }
+    setActivePage(page: string) { this.activePage = page }
 
     /** Поиск */
     searchedValue: string = '';
-    discardSearchValue() {
-        this.searchedValue = '';
-    }
+    discardSearchValue() { this.searchedValue = '' }
 
     /** Выноска мини-плеера */
     miniPlayerLink: string = null;

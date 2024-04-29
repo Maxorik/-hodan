@@ -53,21 +53,21 @@ export const TutorialsPage = observer(() => {
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } />
+                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } key={ card.href } />
                             }) }
                     </TabPanel>
                     <TabPanel value="letters">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && !isBase(card.tags) && <Card {...card} />
+                                return filteredValue(card) && !isVideo(card.href) && !isBase(card.tags) && <Card {...card} key={ card.href } />
                             }) }
                     </TabPanel>
                     <TabPanel value="bases">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && isBase(card.tags) && <Card {...card} />
+                                return filteredValue(card) && !isVideo(card.href) && isBase(card.tags) && <Card {...card} key={ card.href } />
                             }) }
                     </TabPanel>
                 </TabContext>

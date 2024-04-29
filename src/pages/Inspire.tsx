@@ -53,21 +53,21 @@ export const InspirePage = observer(() => {
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && isDiy(card.tags) && <Card {...card} />
+                                return filteredValue(card) && !isVideo(card.href) && isDiy(card.tags) && <Card {...card} key={ card.href } />
                             }) }
                     </TabPanel>
                     <TabPanel value="sites">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && !isDiy(card.tags) && <Card {...card} />
+                                return filteredValue(card) && !isVideo(card.href) && !isDiy(card.tags) && <Card {...card} key={ card.href } />
                             }) }
                     </TabPanel>
                     <TabPanel value="videos">
                         { isLoading ?
                             <div className='loader-container'><div className='loader' /></div> :
                             appStore.data.inspire.map((card) => {
-                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } />
+                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } key={ card.href } />
                             }) }
                     </TabPanel>
                 </TabContext>

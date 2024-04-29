@@ -124,7 +124,7 @@
 .bottom-container {
   width: inherit;
   height: auto;
-  min-height: 200px;
+  min-height: 250px;
   bottom: 0;
   right: 0;
   position: fixed;
@@ -143,6 +143,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.preview-video-container {
+
 }
 
 .add-form-container {

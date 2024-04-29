@@ -11,6 +11,12 @@ export const RadioPage = observer(() => {
         appStore.getData('radio').then(() => setLoading(false));
     }, []);
 
+    const getPreviewImage = (link: string, ext?: 'webp' | 'jpg') => {
+        const imgExt = ext ? '.' + ext : '.jpg';
+        const videoId = link.split('=')[1];
+        return `https://i.ytimg.com/vi/${videoId}/mqdefault${imgExt}`;
+    }
+
     return (
         <>
             { isLoading ?
@@ -20,7 +26,10 @@ export const RadioPage = observer(() => {
                 <div className='content-container video-card-container'>
                     { appStore.data.radio.map(item =>
                         <div className='card-container' key={ item.href }>
-                            <VideoIntegration link={ item.href } playerWidth={ 350 } playerHeight={ 200 } />
+                            {/*<VideoIntegration link={ item.href } playerWidth={ 350 } playerHeight={ 200 } />*/}
+                            <div className='preview-video-container'>
+                                <img className="video__media" src={ getPreviewImage(item.href) } />
+                            </div>
                         </div>
                     )}
                 </div>
