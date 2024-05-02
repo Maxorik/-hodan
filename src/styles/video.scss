@@ -1,0 +1,58 @@
+.video-container {
+  position: relative;
+}
+
+.video-link {
+  &:hover {
+    &::after {
+      content: '';
+    }
+  }
+}
+
+.card-video-preview {
+  margin-right: 20px;
+  border-radius: 6px;
+  min-width: fit-content;
+}
+
+.video-button {
+  position: absolute;
+  top: 15%;
+  left: 87%;
+  z-index: 1;
+  padding: 0;
+  width: 68px;
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.video-button-shape {
+  fill: #ff0000;
+  fill-opacity: 0.8;
+}
+
+.video-button-icon {
+  fill: #ffffff;
+}
+
+.video-button:focus {
+  outline: none;
+}
+
+.video-container:hover .video-button-shape,
+.video-button:focus .video-button-shape {
+  fill: hsl(40,73.3%,66.3%);
+  fill-opacity: 1;
+}
+
+.video-enabled, .video-media {
+  cursor: pointer;
+}
+
+.video-enabled .video-button {
+  display: block;
+}
