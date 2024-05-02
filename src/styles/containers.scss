@@ -67,17 +67,6 @@
   box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 
-.video-card-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-
-  .card-container {
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 .content-interface {
   display: flex;
   justify-content: space-between;

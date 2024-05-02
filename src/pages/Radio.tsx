@@ -17,13 +17,27 @@ export const RadioPage = observer(() => {
                 <div className='loader-container '>
                     <div className='loader'/>
                 </div> :
-                <div className='content-container video-card-container'>
-                    { appStore.data.radio.map(item =>
-                        <div className='card-container' key={ item.href }>
-                            <VideoIntegration link={ item.href } playerWidth={ 350 } playerHeight={ 200 } />
-                        </div>
-                    )}
-                </div>
+                <>
+                    { appStore.miniPlayerLink && <div className='big-video-container'>
+                        <iframe
+                            src = { appStore.miniPlayerLink }
+                            title="video example"
+                            frameBorder="0"
+                            allow="autoplay"
+                            allowFullScreen
+                            width={ 740 }
+                            height={ 376 }
+                        >
+                        </iframe>
+                    </div> }
+                    <div className='content-container video-card-container'>
+                        { appStore.data.radio.map(item =>
+                            <div className='card-container' key={ item.href }>
+                                <VideoIntegration link={ item.href } autoplay={ false }/>
+                            </div>
+                        )}
+                    </div>
+                </>
             }
         </>
     );

@@ -4,21 +4,26 @@
 
 import React, { useState } from 'react';
 import appStore, { isMobile } from 'store'
-import '../styles/video.scss'
 
 interface IVideoProps {
     link: string,
-    playerWidth: number,
-    playerHeight: number
+    autoplay?: boolean
 }
 
-export const VideoIntegration = ({ link, playerWidth, playerHeight }: IVideoProps) => {
+export const VideoIntegration = ({ link, autoplay }: IVideoProps) => {
+    /** Подгрузка видео вместо превью */
     const [iframe, setIframe] = useState(0);
-    const uploadVideo = () => { setIframe(1) }
 
     const videoId = link.split('=')[1];
 
-    const getVideoLink = () => { return `https://www.youtube.com/embed/${videoId}?autoplay=1` }
+    const autoplayParam = autoplay ? 1 : 0;
+    const getVideoLink = () => { return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplayParam}` }
+
+    /** Загружаем само видео. Устанавливаем мини-проигрыватель */
+    const uploadVideo = () => {
+        appStore.setMiniPlayerLink(getVideoLink().slice(0, -1) + '1');
+        setIframe(1)
+    }
 
     const getPreviewImage = (ext?: 'webp' | 'jpg') => {
         const imgExt = ext ? '.' + ext : '.jpg';

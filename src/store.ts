@@ -86,6 +86,7 @@ class AppMainStore {
 
     /** Выноска мини-плеера */
     miniPlayerLink: string = null;
+    setMiniPlayerLink(src: string) { this.miniPlayerLink = src }
 
 }
 

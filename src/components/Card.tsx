@@ -19,7 +19,7 @@ export const Card = ({ href, text, title, tags, showVideoPreview, showTags }: Ca
     return(
         <div className='card-container'>
             { showVideoPreview && <div className='card-video-preview'>
-                <VideoIntegration link={ href } playerWidth={200} playerHeight={160}/>
+                <VideoIntegration link={ href } autoplay={ true } />
             </div> }
             <div className='card-content'>
                 <a href={ href } target='_blank'>{ title }</a>
