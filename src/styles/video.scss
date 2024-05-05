@@ -59,13 +59,17 @@
 
 .video-card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 
   .card-container {
     justify-content: center;
     align-items: center;
     min-height: 208px;
+  }
+
+  @media (min-width: 1600px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
