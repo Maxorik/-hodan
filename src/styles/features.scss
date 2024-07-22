@@ -1,0 +1,46 @@
+/** Боковая панель навигации. Ховер на пункты меню */
+
+.menu-item {
+  background-color: #16202a;
+  margin: 4px 0;
+}
+
+.hovered-button {
+  height: auto;
+  max-height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  --border-right: 6px;
+  --animation-color: hsl(179,99.2%,46.9%);
+  --fs-size: 2em;
+  text-decoration: none;
+  position: relative;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: width 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.hovered-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+.actual-text {
+  color: hsla(0, 0%, 80%, 1);
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}

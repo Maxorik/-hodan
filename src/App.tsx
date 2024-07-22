@@ -3,12 +3,7 @@ import { observer } from "mobx-react-lite";
 import { IconButton, Modal } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import themeOptions from './styles/mui-theme'
-import { TreeView } from '@mui/x-tree-view/TreeView';
-import { TreeItem } from '@mui/x-tree-view/TreeItem';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import HdrStrongOutlinedIcon from '@mui/icons-material/HdrStrongOutlined';
 import { ResourcePage, RadioPage, TutorialsPage, MainPage, ProjectsPage, InspirePage } from 'pages'
 import { SearchWidget, AddForm, Footer } from "components";
 import appStore, { isMobile } from './store'
@@ -18,6 +13,22 @@ import './styles/phone.scss'
 
 const App = observer(() => {
     const pageWithSearch = ['resources', 'tutorials', 'inspire'];   // страницы, на которых есть поиск по записям
+    const menuItemList = [{
+        label: 'Сервисы',
+        link: 'resources'
+    }, {
+        label: 'Туториалы',
+        link: 'tutorials'
+    }, {
+        label: 'Радио',
+        link: 'radio'
+    }, {
+        label: 'Проекты',
+        link: 'projects'
+    }, {
+        label: 'Разное',
+        link: 'inspire'
+    }]
     const [showModal, setShowModal] = useState(false);
     const eventModal = (state: boolean) => { setShowModal(state) }
 
@@ -33,19 +44,14 @@ const App = observer(() => {
                             <p>$hodan</p>
                         </div>
                     </div>
-                    <div>
-                        <TreeView
-                            aria-label="file system navigator"
-                            defaultCollapseIcon={<ExpandMoreIcon />}
-                            defaultExpandIcon={<ChevronRightIcon />}
-                            defaultExpanded={['projects-parent']}
-                        >
-                            <TreeItem className='tree-item' nodeId="service-parent" label="Сервисы" onClick={ () => appStore.setActivePage('resources') } />
-                            <TreeItem className='tree-item' nodeId="tutorials-parent" label="Туториалы" onClick={ () => appStore.setActivePage('tutorials') } />
-                            <TreeItem className='tree-item' nodeId="radio-parent" label="Радио" onClick={ () => appStore.setActivePage('radio') } />
-                            <TreeItem className='tree-item' nodeId="projects-parent" label="Проекты" onClick={ () => appStore.setActivePage('projects') } />
-                            <TreeItem className='tree-item' nodeId="inspire-parent" label="Разное" onClick={ () => appStore.setActivePage('inspire') } />
-                        </TreeView>
+                    <div> {
+                        menuItemList.map(menuItem => <div className='menu-item'>
+                            <div className="hovered-button" onClick={ () => appStore.setActivePage(menuItem.link) }>
+                                <span className="actual-text">&nbsp;&nbsp;&nbsp;{menuItem.label}</span>
+                                <span aria-hidden="true" className="hover-text">&nbsp;&nbsp;&nbsp;{menuItem.label}</span>
+                            </div>
+                        </div>)
+                    }
                     </div>
                 </div> }
 
