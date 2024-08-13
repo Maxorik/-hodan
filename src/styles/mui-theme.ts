@@ -1,7 +1,7 @@
 import {createTheme, ThemeOptions } from '@mui/material/styles';
 
 const infoColor = 'hsla(210, 60%, 65%, 1)';
-const buttonColor = 'hsl(98,20.5%,43.9%)';
+const buttonColor = 'hsl(179 97.62% 32.67%)';
 const contentColor = 'hsla(0, 0%, 80%, 1)';
 const bgColor = 'hsla(210, 20%, 10%, 1)';
 const dividerColor = 'hsla(210, 60%, 65%, 0.07)';

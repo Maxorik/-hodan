@@ -39,39 +39,41 @@ export const TutorialsPage = observer(() => {
     };
 
     return (
-        <div className='content-container'>
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-                <TabContext value={value}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
-                            <Tab label="Базы знаний" value="bases" />
-                            <Tab label="Статьи" value="letters" />
-                            <Tab label="Видео" value="videos" />
-                        </TabList>
-                    </Box>
-                    <TabPanel value="videos">
-                        { isLoading ?
-                            <div className='loader-container'><div className='loader' /></div> :
-                            appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } key={ card.href } />
-                            }) }
-                    </TabPanel>
-                    <TabPanel value="letters">
-                        { isLoading ?
-                            <div className='loader-container'><div className='loader' /></div> :
-                            appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && !isBase(card.tags) && <Card {...card} key={ card.href } />
-                            }) }
-                    </TabPanel>
-                    <TabPanel value="bases">
-                        { isLoading ?
-                            <div className='loader-container'><div className='loader' /></div> :
-                            appStore.data.tutorials.map((card) => {
-                                return filteredValue(card) && !isVideo(card.href) && isBase(card.tags) && <Card {...card} key={ card.href } />
-                            }) }
-                    </TabPanel>
-                </TabContext>
-            </Box>
-        </div>
+        <Box sx={{ width: '100%', typography: 'body1' }}>
+            <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
+                        <Tab label="Базы знаний" value="bases" />
+                        <Tab label="Статьи" value="letters" />
+                        <Tab label="Видео" value="videos" />
+                    </TabList>
+                </Box>
+                <TabPanel value="videos">
+                    { isLoading ?
+                        <div className='loader-container'><div className='loader' /></div> :
+                            appStore.data.tutorials.map((card) => { return filteredValue(card) && isVideo(card.href) &&
+                            <Card {...card} showVideoPreview={ true } key={ card.href } />
+                        })
+                    }
+                </TabPanel>
+                <TabPanel value="letters">
+                    { isLoading ?
+                        <div className='loader-container'><div className='loader' /></div> : <div className='content-container grid-2-50'>
+                            { appStore.data.tutorials.map((card) => { return filteredValue(card) && !isVideo(card.href) &&
+                                !isBase(card.tags) && <Card {...card} key={ card.href } />
+                        })}
+                        </div>
+                    }
+                </TabPanel>
+                <TabPanel value="bases">
+                    { isLoading ?
+                        <div className='loader-container'><div className='loader' /></div> : <div className='content-container'>
+                            { appStore.data.tutorials.map((card) => { return filteredValue(card) && !isVideo(card.href) &&
+                                isBase(card.tags) && <Card {...card} key={ card.href } />
+                        })} </div>
+                    }
+                </TabPanel>
+            </TabContext>
+        </Box>
     );
 })

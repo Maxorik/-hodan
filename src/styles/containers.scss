@@ -60,7 +60,15 @@
 }
 
 .content-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 265px);
+  gap: 10px;
+  justify-content: center;
   padding: .75rem;
+}
+
+.grid-2-50 {
+  grid-template-columns: repeat(2, 50%);
 }
 
 .card-container {
