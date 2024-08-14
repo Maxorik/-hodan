@@ -16,7 +16,7 @@ export const ProjectsPage = observer(() => {
 
     return (
         <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider', ml: '12px' }}>
                 <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
                     <Tab label="Веб-приложения" value="web-app" />
                     <Tab label="Боты" value="bots" />

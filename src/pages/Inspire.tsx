@@ -22,9 +22,9 @@ export const InspirePage = observer(() => {
         return value.text && value.text.includes(filter) || value.title.includes(filter) || value.tags.includes(filter);
     }
 
-    /** Это видео-курс */
-    function isVideo(href: string) {
-        return href.indexOf('youtube.com') !== -1;
+    /** Это материал про сети */
+    function isNetwork(tags: string) {
+        return tags.indexOf('network') !== -1;
     }
 
     /** Это статья */
@@ -39,36 +39,37 @@ export const InspirePage = observer(() => {
     };
 
     return (
-        <Box sx={{ width: '100%', typography: 'body1'}}>
+        <Box sx={{ width: '100%', typography: 'body1', ml: '12px'}}>
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
                         <Tab label="Сайты" value="sites" />
                         <Tab label="DIY" value="diy" />
-                        <Tab label="Видео" value="videos" />
+                        <Tab label="Сети" value="network" />
                     </TabList>
                 </Box>
                 <TabPanel value="diy">
                     { isLoading ?
                         <div className='loader-container'><div className='loader' /></div> :
                         appStore.data.inspire.map((card) => {
-                            return filteredValue(card) && !isVideo(card.href) && isDiy(card.tags) && <Card {...card} key={ card.href } />
+                            return filteredValue(card) && !isNetwork(card.tags) && isDiy(card.tags) && <Card {...card} key={ card.href } />
                         }) }
                 </TabPanel>
                 <TabPanel value="sites">
                     { isLoading ?
                         <div className='loader-container'><div className='loader' /></div> : <div className='content-container grid-2-50'>
-                            { appStore.data.inspire.map((card) => { return filteredValue(card) && !isVideo(card.href) &&
+                            { appStore.data.inspire.map((card) => { return filteredValue(card) && !isNetwork(card.tags) &&
                                 !isDiy(card.tags) && <Card {...card} key={ card.href } />
                         })} </div>
                     }
                 </TabPanel>
-                <TabPanel value="videos">
+                <TabPanel value="network">
                     { isLoading ?
-                        <div className='loader-container'><div className='loader' /></div> :
-                        appStore.data.inspire.map((card) => {
-                            return filteredValue(card) && isVideo(card.href) && <Card {...card} showVideoPreview={ true } key={ card.href } />
-                        }) }
+                        <div className='loader-container'><div className='loader' /></div> : <div className='content-container grid-2-50'>
+                            { appStore.data.inspire.map((card) => { return filteredValue(card) && isNetwork(card.tags) &&
+                                !isDiy(card.tags) && <Card {...card} key={ card.href } />
+                            })} </div>
+                    }
                 </TabPanel>
             </TabContext>
         </Box>
