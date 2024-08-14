@@ -77,7 +77,7 @@ export const AddFormComponent = observer(({type, inputList}: IFormProps) => {
                 >
                     <DeleteIcon />
                 </IconButton>
-                <Tooltip title="base - база данных; inspire - статья для вдохновения">
+                <Tooltip title="base - база данных; inspire - статья для вдохновения; network - сети">
                     <IconButton><HelpOutlineOutlinedIcon /></IconButton>
                 </Tooltip>
             </div>
