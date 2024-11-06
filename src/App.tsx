@@ -14,9 +14,6 @@ import './styles/phone.scss'
 const App = observer(() => {
     const pageWithSearch = ['resources', 'tutorials', 'inspire'];   // страницы, на которых есть поиск по записям
     const menuItemList = [{
-        label: 'Сервисы',
-        link: 'resources'
-    }, {
         label: 'Туториалы',
         link: 'tutorials'
     }, {
@@ -28,6 +25,9 @@ const App = observer(() => {
     }, {
         label: 'Разное',
         link: 'inspire'
+    }, {
+        label: 'Сервисы',
+        link: 'resources'
     }]
     const [showModal, setShowModal] = useState(false);
     const eventModal = (state: boolean) => { setShowModal(state) }

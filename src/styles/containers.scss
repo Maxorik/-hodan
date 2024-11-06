@@ -63,10 +63,10 @@
 
 .content-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 265px);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  justify-content: center;
-  padding: .75rem;
+  justify-content: space-between;
+  margin: 0 8px;
 }
 
 .grid-2-50 {
@@ -145,7 +145,8 @@
 
 .add-form-container {
   background-color: $header-color;
-  margin-top: 4px;
+  margin: 10px 10px 0 0;
+  border-radius: 6px;
 }
 
 .project-container {

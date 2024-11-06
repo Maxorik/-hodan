@@ -36,6 +36,7 @@
 
   .content-container {
     margin-bottom: 40px;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .main-nav-container {
@@ -53,5 +54,11 @@
         border: none;
       }
     }
+  }
+}
+
+@media (min-width: 2000px) {
+  .content-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

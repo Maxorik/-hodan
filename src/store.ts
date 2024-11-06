@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeObservable, observable, action } from "mobx";
 import axios from "axios";
+import config from 'src/config';
 
 export const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -33,6 +34,10 @@ class AppMainStore {
         });
     }
 
+    /** Право на редактирование */
+    isAdmin = localStorage.getItem('hodanAdmin') === config.password;
+    setAdmin(state: boolean) { this.isAdmin = state }
+
     /** апи */
     url = {
         resources: 'https://hodan-2ff80-default-rtdb.firebaseio.com/services.json',
@@ -40,10 +45,6 @@ class AppMainStore {
         radio: 'https://hodan-2ff80-default-rtdb.firebaseio.com/radio.json',
         inspire: 'https://hodan-2ff80-default-rtdb.firebaseio.com/inspire.json',
     }
-
-    /** Право на редактирование */
-    isAdmin = false;
-    setAdmin(state: boolean) { this.isAdmin = state }
 
     /** данные */
     data = {

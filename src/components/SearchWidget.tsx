@@ -9,7 +9,10 @@ import config from 'src/config'
 export const SearchWidget = observer(() => {
     const setSearchValue = (value: string) => {
         appStore.searchedValue = value;
-        value === config.password && appStore.setAdmin(true);
+        if (value === config.password) {
+            appStore.setAdmin(true);
+            localStorage.setItem('hodanAdmin', 'loki');
+        }
     }
     return (
         <Paper

@@ -23,7 +23,7 @@ interface IFormInput {
 export const AddForm = observer(() => {
     return (
         <>
-            { appStore.isAdmin && <div className='content-container add-form-container'>
+            { <div className='add-form-container'>
                 { ['resources', 'tutorials', 'inspire'].some((value) => appStore.activePage === value)  && <AddFormComponent
                     type={ appStore.activePage }
                     inputList={ [{ label: 'Название', name: 'title' }, { label: 'Ссылка', name: 'href' }, { label: 'Описание', name: 'text' }, { label: 'Теги', name: 'tags' }] }
@@ -45,7 +45,7 @@ export const AddFormComponent = observer(({type, inputList}: IFormProps) => {
 
     return (
         <>
-            <p className='container-title'>Новая запись:</p>
+            <p className='container-title m-0-10'>Новая запись:</p>
             { inputList.map(input => <TextField
                 label={ input.label }
                 type="text"
@@ -54,18 +54,20 @@ export const AddFormComponent = observer(({type, inputList}: IFormProps) => {
                 { ...input.formField }
                 fullWidth
                 key={ input.name }
+                className='m-0-10'
             />)
             }
             <div className='form-controls'>
                 <Button
                     variant="contained"
                     endIcon={<SendIcon />}
-                    className='mr-8'
+                    className='m-0-10 mr-8'
                     onClick={ () => {
                         appStore.addRecord(type, inputList);
                         discardForm();
                     } }
                     color="success"
+                    disabled={ !appStore.isAdmin }
                 >
                     Добавить
                 </Button>

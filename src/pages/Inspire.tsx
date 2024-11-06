@@ -44,7 +44,7 @@ export const InspirePage = observer(() => {
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleChange} textColor="secondary" indicatorColor="secondary">
                         <Tab label="Сайты" value="sites" />
-                        <Tab label="DIY" value="diy" />
+                        {/*<Tab label="DIY" value="diy" />*/}
                         <Tab label="Сети" value="network" />
                     </TabList>
                 </Box>
